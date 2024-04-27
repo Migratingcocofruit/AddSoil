@@ -264,6 +264,11 @@
 	data["secure"] = is_secure
 	data["can_dry"] = can_dry
 	data["drying"] = drying
+	data["disk_storage"] = (name == "disk compartmentalizer")
+	data["empty_disks"] = 0
+	data["stat_disks"]  = null
+	data["trait_disks"] = null
+	data["reagent_disks"] = null
 
 	var/list/items = list()
 	for(var/i in 1 to length(item_quants))
@@ -274,6 +279,34 @@
 
 	if(length(items))
 		data["contents"] = items
+
+	if(name == "disk compartmentalizer")
+		var/emptydisks = 0
+		var/list/statdisks = list()
+		var/list/traitdisks = list()
+		var/list/reagentdisks = list()
+		for(var/i in length(item_quants))
+			var/K = item_quants[i]
+			var/count = item_quants[K]
+			to_chat(world, "<span class='info'>[count]]</span>")
+			if(count > 0)
+				for(var/obj/item/disk/plantgene/D in contents)
+					to_chat(world, "<span class='info'> Name [D.name] Type [D.gene ? D.gene.type : ("empty")] Reagent? [D.gene ? D.gene.type == /datum/plant_gene/reagent : ("empty")] Name:[D.name]</span>")
+					if(D.name == K)
+						switch(D.gene ? D.gene.type : "empty")
+							if("empty")
+								emptydisks++
+							if("/datum/plant_gene/core")
+								statdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+							if("/datum/plant_gene/trait")
+								traitdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+							if("/datum/plant_gene/reagent")
+								reagentdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+
+		data["empty_disks"] = emptydisks
+		data["stat_disks"]  = statdisks
+		data["trait_disks"] = traitdisks
+		data["reagent_disks"] = reagentdisks
 
 	return data
 
@@ -354,7 +387,6 @@
 				I.forceMove(src)
 			else
 				I.forceMove(src)
-
 			item_quants[I.name] += 1
 			return TRUE
 	return FALSE
@@ -697,6 +729,73 @@
 	visible_contents = TRUE
 	board_type = /obj/machinery/smartfridge/disks
 
+/obj/machinery/smartfridge/disks/load(obj/I, mob/user)
+	if(accept_check(I))
+		if(length(contents) >= max_n_of_items)
+			to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+			return FALSE
+		else
+			if(isstorage(I.loc))
+				var/obj/item/storage/S = I.loc
+				if(!S.removal_allowed_check(user))
+					return
+
+				S.remove_from_storage(I, src)
+			else if(ismob(I.loc))
+				var/mob/M = I.loc
+				if(M.get_active_hand() == I)
+					if(!M.drop_item())
+						to_chat(user, "<span class='warning'>\The [I] is stuck to you!</span>")
+						return FALSE
+				else
+					M.unEquip(I)
+				I.forceMove(src)
+			else
+				I.forceMove(src)
+			var/obj/item/disk/plantgene/D = I
+			to_chat(world, "<span class='info'>[D.gene ? D.gene.type : ("empty")]</span>")
+			item_quants[I.name] += 1
+			return TRUE
+	return FALSE
+
+/*
+/obj/machinery/smartfridge/disks/ui_data(mob/user)
+	var/list/data = list()
+
+	data["contents"] = null
+	data["secure"] = is_secure
+	data["can_dry"] = can_dry
+	data["drying"] = drying
+	data["disk_storage"] = TRUE
+	var/emptydisks = 0
+	var/list/statdisks = list()
+	var/list/traitdisks = list()
+	var/list/reagentdisks = list()
+	for(var/i in length(item_quants))
+		var/K = item_quants[i]
+		var/count = item_quants[K]
+		to_chat(world, "<span class='info'>[count]]</span>")
+		if(count > 0)
+			for(var/obj/item/disk/plantgene/D in contents)
+				to_chat(world, "<span class='info'> Name [D.name] Type [D.gene ? D.gene.type : ("empty")] Reagent? [D.gene ? D.gene.type == /datum/plant_gene/reagent : ("empty")] Name:[D.name]</span>")
+				if(D.name == K)
+					switch(D.gene ? D.gene.type : "empty")
+						if("empty")
+							emptydisks++
+						if("/datum/plant_gene/core")
+							statdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+						if("/datum/plant_gene/trait")
+							traitdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+						if("/datum/plant_gene/reagent")
+							reagentdisks.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
+
+	data["empty_disks"] = emptydisks
+	data["stat_disks"]  = statdisks
+	data["trait_disks"] = traitdisks
+	data["reagent_disks"] = reagentdisks
+
+	return data
+*/
 /obj/machinery/smartfridge/disks/Initialize(mapload)
 	. = ..()
 	accepted_items_typecache = typecacheof(list(
