@@ -23,6 +23,9 @@
 	/// Do we drop a core when we're neutralized?
 	var/drops_core = TRUE
 
+	/// Is this the safe version of the anomally
+	var/safe = FALSE
+
 /obj/effect/anomaly/Initialize(mapload, new_lifespan, _drops_core = TRUE)
 	. = ..()
 	GLOB.poi_list |= src
@@ -131,12 +134,14 @@
 	for(var/mob/living/M in orange(4, src))
 		if(!M.mob_negates_gravity() && !issilicon(M))
 			step_towards(M,src)
-	for(var/obj/O in range(0, src))
-		if(!O.anchored && O.loc != src && O.move_resist < MOVE_FORCE_OVERPOWERING) // so it cannot throw the anomaly core or super big things
-			for(var/mob/living/target in view(4, src))
-				if(target && !target.stat && (get_dist(target, src) > 1 || prob(50))) //We don't want to always throw at the person that is in the anomaly, fuck up people around it.
-					O.throw_at(target, 5, 10, dodgeable = FALSE)
-					break
+	// Safe version shouldn't deal damage
+	if(!safe)
+		for(var/obj/O in range(0, src))
+			if(!O.anchored && O.loc != src && O.move_resist < MOVE_FORCE_OVERPOWERING) // so it cannot throw the anomaly core or super big things
+				for(var/mob/living/target in view(4, src))
+					if(target && !target.stat && (get_dist(target, src) > 1 || prob(50))) //We don't want to always throw at the person that is in the anomaly, fuck up people around it.
+						O.throw_at(target, 5, 10, dodgeable = FALSE)
+						break
 	//anomaly quickly contracts then slowly expands it's ring
 	animate(warp, time = 6, transform = matrix().Scale(0.5,0.5))
 	animate(time = 14, transform = matrix())
@@ -158,7 +163,8 @@
 		else
 			A.KnockDown(4 SECONDS) //You know, maybe hard stuns in a megafauna fight are a bad idea.
 		var/atom/target = get_edge_target_turf(A, get_dir(src, get_step_away(A, src)))
-		A.throw_at(target, 5, 1)
+		if(!safe)
+			A.throw_at(target, 5, 1)
 		boing = FALSE
 
 /obj/effect/anomaly/grav/detonate()
@@ -168,6 +174,12 @@
 	if(T && length(GLOB.gravity_generators["[T.z]"]))
 		var/obj/machinery/gravity_generator/main/G = pick(GLOB.gravity_generators["[T.z]"])
 		G.set_broken() //Requires engineering to fix the gravity generator, as it gets overloaded by the anomaly.
+
+/// Does not throw objects
+/obj/effect/anomaly/grav/safe
+	name = "lesser gravitational anomally"
+	safe = TRUE
+	drops_core = FALSE
 
 /////////////////////
 
@@ -213,7 +225,7 @@
 /obj/effect/anomaly/flux/proc/mobShock(mob/living/M)
 	if(canshock && istype(M))
 		canshock = FALSE //Just so you don't instakill yourself if you slam into the anomaly five times in a second.
-		M.electrocute_act(shockdamage, name, flags = SHOCK_NOGLOVES)
+		M.electrocute_act(shockdamage * (!safe), name, flags = SHOCK_NOGLOVES)
 		if(!knockdown)
 			M.Weaken(explosive ? 6 SECONDS : 3 SECONDS) //Back to being deadly if you touch it, rather than just being able to crawl out of it. Non explosive ones less deadly, since you can't loot them
 		else
@@ -224,6 +236,12 @@
 		explosion(src, 1, 4, 16, 18) //Low devastation, but hits a lot of stuff.
 	else
 		new /obj/effect/particle_effect/sparks(loc)
+
+/// Deals no damage
+/obj/effect/anomaly/flux/safe
+	name = "lesser flux anomally"
+	safe = TRUE
+	drops_core = FALSE
 
 /////////////////////
 
@@ -259,14 +277,14 @@
 		return
 	..()
 	for(var/mob/living/M in range(mob_range, src))
-		do_teleport(M, locate(M.x, M.y, M.z), 4, do_effect = drops_core || supermatter_spawned)
+		do_teleport(M, locate(M.x, M.y, M.z), 4 - (3 * safe), do_effect = drops_core || supermatter_spawned)
 	for(var/obj/O in range (other_range, src))
 		if(!O.anchored && O.invisibility == 0 && prob(50))
-			do_teleport(O, locate(O.x, O.y, O.z), 6, do_effect = drops_core || supermatter_spawned)
+			do_teleport(O, locate(O.x, O.y, O.z), 6 - (5 * safe), do_effect = drops_core || supermatter_spawned)
 
 /obj/effect/anomaly/bluespace/Bumped(atom/movable/AM)
 	if(isliving(AM) && fully_active)
-		do_teleport(AM, locate(AM.x, AM.y, AM.z), 8)
+		do_teleport(AM, locate(AM.x, AM.y, AM.z), 8 - (7 * safe))
 
 /obj/effect/anomaly/bluespace/detonate()
 	if(!mass_teleporting)
@@ -326,6 +344,12 @@
 	sleep(20)
 	M.client.screen -= blueeffect
 	qdel(blueeffect)
+
+/// Teleports are at range 1
+/obj/effect/anomaly/bluespace/safe
+	name = "lesser bluespace anomally"
+	safe = TRUE
+	drops_core = FALSE
 
 
 /////////////////////

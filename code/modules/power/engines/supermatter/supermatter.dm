@@ -1004,6 +1004,11 @@
 /obj/machinery/atmospherics/supermatter_crystal/engine
 	is_main_engine = TRUE
 
+/obj/machinery/atmospherics/supermatter_crystal/safe
+	name = "safe supermater crystal"
+	desc = "A safer version of the supermater crystal. Will not dust living beings or explode"
+	var/safety_shutdown = FALSE
+
 /obj/machinery/atmospherics/supermatter_crystal/shard
 	name = "supermatter shard"
 	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure."
@@ -1254,6 +1259,88 @@
 	message_admins("[src] has been powered for the first time [ADMIN_JMP(src)].")
 	has_been_powered = TRUE
 	make_next_event_time()
+
+/// Safe crystal shuts down instead of exploding
+/obj/machinery/atmospherics/supermatter_crystal/safe/explode()
+	safety_shutdown = TRUE
+	final_countdown = FALSE
+	power = 0
+	var/turf/T = get_turf(src)
+	var/super_matter_charge_sound = sound('sound/magic/charge.ogg')
+	for(var/player in GLOB.player_list)
+		var/mob/M = player
+		var/turf/mob_turf = get_turf(M)
+		if(atoms_share_level(T, mob_turf))
+			SEND_SOUND(M, super_matter_charge_sound)
+
+			if(atoms_share_level(M, src))
+				to_chat(M, "<span class='boldannounceic'>You feel reality distort for a moment...</span>")
+			else
+				to_chat(M, "<span class='boldannounceic'>You hold onto \the [M.loc] as hard as you can, as reality distorts around you. You feel safe.</span>")
+
+/// Act like a normal crystal unless safty shutdown is tripped
+/obj/machinery/atmospherics/supermatter_crystal/safe/process_atmos_safely(turf/T, datum/gas_mixture/env)
+	if(!safety_shutdown)
+		return ..(T, env)
+	// Reset a shut down crystal once the air mixture in the chamber is inert enough.
+	if((env.nitrogen() + env.sleeping_agent() >= env.total_moles() * 0.99 && env.total_moles() >= 10 && env.total_moles() <= MOLE_CRUNCH_THRESHOLD) && env.temperature() <= T20C)
+		damage = 0
+		var/image/causality_field = image(icon, null, "causality_field")
+		cut_overlay(causality_field, TRUE)
+		remove_filter(list("outline", "icon"))
+		has_been_powered = FALSE
+		safety_shutdown = FALSE
+
+/// The safe crystal is for training and shouldn't carry any consequences.
+/// It will also be reset a bunch of times so no need to spam admins with it.
+/obj/machinery/atmospherics/supermatter_crystal/safe/enable_for_the_first_time()
+	has_been_powered = TRUE
+	make_next_event_time()
+
+/// Spawns safe variants of the SM anomalies
+/obj/machinery/atmospherics/supermatter_crystal/safe/supermatter_anomaly_gen(turf/anomalycenter, type = FLUX_ANOMALY, anomalyrange = 5)
+	var/turf/L = pick(orange(anomalyrange, anomalycenter))
+	if(L)
+		switch(type)
+			if(FLUX_ANOMALY)
+				var/obj/effect/anomaly/flux/safe/A = new(L, 30 SECONDS, FALSE)
+				A.explosive = FALSE
+			if(GRAVITATIONAL_ANOMALY)
+				new /obj/effect/anomaly/grav/safe(L, 25 SECONDS, FALSE, FALSE)
+			if(BLUESPACE_ANOMALY)
+				new /obj/effect/anomaly/bluespace/safe(L, 24 SECONDS, FALSE, FALSE, TRUE)
+
+/obj/machinery/atmospherics/supermatter_crystal/safe/dust_mob(mob/living/nom, vis_msg, mob_msg, cause)
+	if(nom.incorporeal_move || nom.status_flags & GODMODE)
+		return
+	if(!vis_msg)
+		vis_msg = "<span class='danger'>[nom] reaches out and tries to touch [src], but are repulsed!</span>"
+	if(!mob_msg)
+		mob_msg = "<span class='userdanger'>You reach out and try to touch [src], but a reverberation passes through you as an invisible force violently pushes you away!</span>"
+	if(!cause)
+		cause = "contact"
+	nom.visible_message(vis_msg, mob_msg, "<span class='italics'>You hear an ear shattering noise as your whole body reverberates.</span>")
+	nom.Weaken(2 SECONDS)
+
+/obj/machinery/atmospherics/supermatter_crystal/Bumped(atom/movable/AM)
+	if(HAS_TRAIT(AM, TRAIT_SUPERMATTER_IMMUNE))
+		return
+	if(isliving(AM))
+		AM.visible_message("<span class='danger'>[AM] slams into [src] inducing a resonance... [AM.p_their()] body starts to reverberate and they are violently repulsed!</span>",\
+		"<span class='userdanger'>You slam into [src] and your ears are filled with unearthly ringing as you are violently repulsed</span>",\
+		"<span class='italics'>You hear an ear shattering noise as your whole body reverberates.</span>")
+		var/atom/target = get_edge_target_turf(AM, get_dir(src, get_step_away(AM, src)))
+		AM.throw_at(target, 1, 4)
+		var/mob/living/M = AM
+		M.Weaken(4 SECONDS)
+	else if(isobj(AM) && !iseffect(AM))
+		AM.visible_message("<span class='danger'>[AM] smacks into [src] and rapidly flashes to ash.</span>", null,\
+		"<span class='italics'>You hear a loud crack as you are washed with a wave of heat.</span>")
+		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
+		Consume()
+	else
+		return
+
 
 #undef HALLUCINATION_RANGE
 #undef GRAVITATIONAL_ANOMALY
