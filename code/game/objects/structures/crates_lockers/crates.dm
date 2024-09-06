@@ -699,3 +699,43 @@
 	name = "warden's card"
 	desc = "A card used by the warden to unlock their crate."
 	icon_state = "data"
+
+/obj/structure/closet/crate/engineering/collector
+	name = "Engineering Trainee Collector Crate"
+	desc= "A crate containing 6 radiation collectors"
+
+/obj/structure/closet/crate/engineering/collector/populate_contents()
+	new /obj/machinery/power/rad_collector(src)
+	new /obj/machinery/power/rad_collector(src)
+	new /obj/machinery/power/rad_collector(src)
+	new /obj/machinery/power/rad_collector(src)
+	new /obj/machinery/power/rad_collector(src)
+	new /obj/machinery/power/rad_collector(src)
+
+/obj/structure/closet/crate/engineering/field_generator
+	name = "Engineering Trainee Field Generator Crate"
+	desc= "A crate containing 4 field generators"
+
+/obj/structure/closet/crate/engineering/field_generator/populate_contents()
+	new /obj/machinery/field/generator(src)
+	new /obj/machinery/field/generator(src)
+	new /obj/machinery/field/generator(src)
+	new /obj/machinery/field/generator(src)
+
+/obj/structure/closet/crate/engineering/emitter
+	name = "Engineering Trainee Emitter Crate"
+	desc= "A crate containing 6 emmiters"
+
+/obj/structure/closet/crate/engineering/emitter/populate_contents()
+	new /obj/machinery/power/emitter(src)
+	new /obj/machinery/power/emitter(src)
+	new /obj/machinery/power/emitter(src)
+	new /obj/machinery/power/emitter(src)
+	new /obj/machinery/power/emitter(src)
+	new /obj/machinery/power/emitter(src)
+
+
+
+
+
+

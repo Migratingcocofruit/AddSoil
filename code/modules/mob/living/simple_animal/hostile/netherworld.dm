@@ -74,6 +74,7 @@
 	spawn_text = "crawls through"
 	mob_types = list(/mob/living/simple_animal/hostile/netherworld/migo, /mob/living/simple_animal/hostile/netherworld, /mob/living/simple_animal/hostile/netherworld/blankbody)
 	faction = list("nether")
+	var/sucked_in_message = "Touching the portal, you are quickly pulled through into a world of unimaginable horror!"
 
 /obj/structure/spawner/nether/Initialize(mapload)
 	.=..()
@@ -92,7 +93,7 @@
 		to_chat(user, "<span class='notice'>You don't feel like going home yet...</span>")
 	else
 		user.visible_message("<span class='warning'>[user] is violently pulled into the link!</span>", \
-							"<span class='userdanger'>Touching the portal, you are quickly pulled through into a world of unimaginable horror!</span>")
+							"<span class='userdanger'>[sucked_in_message]</span>")
 		contents.Add(user)
 
 /obj/structure/spawner/nether/process()

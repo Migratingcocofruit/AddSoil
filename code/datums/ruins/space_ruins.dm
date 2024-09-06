@@ -367,3 +367,12 @@
 	name = "Abandoned Security Shuttle"
 	description = "A security shuttle that has been floating in space."
 	allow_duplicates = FALSE
+
+/datum/map_template/ruin/space/engineer_training
+	id = "engineer_training_facility"
+	suffix = "engineer_training.dmm"
+	name = "Engineer Training Facility"
+	description = "A training facility where engineers can experiment with power generation and atmospherics"
+	allow_duplicates = FALSE
+	always_place = TRUE
+	cost = 0

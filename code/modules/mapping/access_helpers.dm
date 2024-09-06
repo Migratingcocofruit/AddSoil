@@ -248,6 +248,13 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/mule_bot
 	access = ACCESS_CARGO_BOT
 
+
+// Ruins Access Helpers
+/obj/effect/mapping_helpers/airlock/access/any/engineer_trainee
+	icon_state = "access_helper_eng"
+	access = ACCESS_ENGINEER_TRAINEE
+
+
 // -------------------- Req All (Requires ALL of the given accesses to open)
 // -------------------- Command access helpers
 /obj/effect/mapping_helpers/airlock/access/all/command

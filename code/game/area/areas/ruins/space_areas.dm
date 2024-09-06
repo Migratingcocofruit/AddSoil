@@ -141,6 +141,90 @@
 	name = "Derelict EVA Storage"
 	icon_state = "eva"
 
+// Engineer training facility
+
+/area/ruin/space/engineer_training_facility
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+
+/area/ruin/space/engineer_training_facility/sleepers
+	name = "\improper Engineer Training Facility Sleepers"
+	icon_state = "engi"
+
+/area/ruin/space/engineer_training_facility/smes
+	name = "\improper Engineer Training Facility SMES"
+	icon_state = "engine_smes"
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+
+/area/ruin/space/engineer_training_facility/control
+	name = "Engineer Training Facility"
+	icon_state = "engine_control"
+
+/area/space/engineer_training_facility/sleepers
+	name = "\improper Engineer Training Facility Sleepers"
+	icon_state = "engibreak"
+
+/area/ruin/space/engineer_training_facility/gear
+	name = "\improper Secondary Engineer Training Facility Storage"
+
+/area/ruin/space/engineer_training_facility/equipmentstorage
+	name = "Engineer Training Facility Equipment Storage"
+	icon_state = "engilocker"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/ruin/space/engineer_training_facility/pre_engine
+	name = "\improper Engineering Area"
+	icon_state = "engine_monitoring"
+
+/area/ruin/space/engineer_training_facility/controlroom
+	name = "\improper Engineer Training Facility Engine Control Room"
+	icon_state = "engine_control"
+
+/area/ruin/space/engineer_training_facility/gravitygenerator
+	name = "\improper Engineer Training Facility Gravity Generator"
+	icon_state = "gravgen"
+
+/area/ruin/space/engineer_training_facility/engine
+	name = "\improper Engineer Training Facility Engine"
+	icon_state = "engine"
+
+/area/ruin/space/engineer_training_facility/atmos
+	name = "Engineer Training Facility Atmospherics"
+	icon_state = "atmos"
+
+/area/ruin/space/engineer_training_facility/atmos/control
+	name = "Engineer Training Facility Atmospherics Control Room"
+	icon_state = "atmosctrl"
+
+/area/ruin/space/engineer_training_facility/atmos/distribution_turbine
+	name = "Engineer Training Facility Atmospherics Distribution Loop And Turbine"
+	icon_state = "turbine"
+
+/area/ruin/space/engineer_training_facility/secure_storage
+	name = "Engineer Training Facility Secure Storage"
+	icon_state = "engine_storage"
+
+/area/ruin/space/engineer_training_facility/solar
+	name = "\improper Engineer Training Facility Solar Array"
+	icon_state = "general_solars"
+	requires_power = FALSE
+	valid_territory = FALSE
+	dynamic_lighting = DYNAMIC_LIGHTING_IFSTARLIGHT
+	ambientsounds = ENGINEERING_SOUNDS
+	sound_environment = SOUND_AREA_SPACE
+
+/area/ruin/space/engineer_training_facility/solar/fore_port
+	name = "\improper Engineer Training Facility Fore-Port Solar Array"
+	icon_state = "fore_port_solars"
+
+/area/ruin/space/engineer_training_facility/fore_port_solar_control
+	name = "\improper Engineer Training Facility Solar Array"
+	icon_state = "fore_port_solar_control"
+
+/area/ruin/space/engineer_training_facility/construction
+	name = "Engineer Training Facility Construction Area"
+	icon_state = "engi"
+
+
 /area/ruin/space/syndicate_druglab
 	name = "Suspicious Station"
 	icon_state = "red"

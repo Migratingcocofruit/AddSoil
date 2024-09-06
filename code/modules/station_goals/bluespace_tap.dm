@@ -23,7 +23,8 @@
 		return TRUE
 	var/highscore = 0
 	for(var/obj/machinery/power/bluespace_tap/T in GLOB.machines)
-		highscore = max(highscore, T.total_points)
+		if(T.counts)
+			highscore = max(highscore, T.total_points)
 	to_chat(world, "<b>Bluespace Harvester Highscore</b>: [highscore >= goal ? "<span class='greenannounce'>": "<span class='boldannounceic'>"][highscore]</span>")
 	if(highscore >= goal)
 		return TRUE
@@ -49,6 +50,9 @@
 	req_components = list(
 							/obj/item/stock_parts/capacitor/quadratic = 5,//Probably okay, right?
 							/obj/item/stack/ore/bluespace_crystal = 5)
+
+/obj/item/circuitboard/machine/bluespace_tap/safe
+	build_path = /obj/machinery/power/bluespace_tap/safe
 
 /obj/effect/spawner/lootdrop/bluespace_tap
 	name = "bluespace harvester reward spawner"
@@ -200,6 +204,8 @@
 	density = TRUE
 	interact_offline = TRUE
 	luminosity = 1
+	/// Does the BSH count for the goal
+	var/counts = TRUE
 
 	/// Correspond to power required for a mining level, first entry for level 1, etc.
 	var/list/power_needs = list(1 KW, 2 KW, 5 KW, 10 KW, 15 KW,
@@ -430,7 +436,11 @@
 
 /obj/machinery/power/bluespace_tap/proc/start_nether_portaling(amount)
 	var/turf/location = locate(x + rand(-5, 5), y + rand(-5, 5), z)
-	var/obj/structure/spawner/nether/bluespace_tap/P = new /obj/structure/spawner/nether/bluespace_tap(location)
+	var/obj/structure/spawner/nether/bluespace_tap/P
+	if(istype(src, /obj/machinery/power/bluespace_tap/safe))
+		P = new /obj/structure/spawner/nether/bluespace_tap/safe(location)
+	else
+		P = new /obj/structure/spawner/nether/bluespace_tap(location)
 	amount--
 	active_nether_portals += P
 	P.linked_source_object = src
@@ -452,7 +462,7 @@
 	data["maxLevel"] = max_level
 	data["emagged"] = emagged
 	data["safeLevels"] = safe_levels
-	data["nextLevelPower"] = get_power_use(input_level + 1)
+	data["nextLevelPower"] = input_level < 25 ? get_power_use(input_level + 1) : 0
 	data["autoShutown"] = auto_shutdown
 	data["overhead"] = overhead
 	data["stabilizers"] = stabilizers
@@ -579,6 +589,28 @@
 	<p>NT Science Directorate, Extradimensional Exploitation Research Group</p> \
 	<p><small>Device highly experimental. Not for sale. Do not operate near small children or vital NT assets. Do not tamper with machine. In case of existential dread, stop machine immediately. \
 	Please document any and all extradimensional incursions. In case of imminent death, please leave said documentation in plain sight for clean-up teams to recover.</small></p>"
+
+// Safe BSH. Same as a normal BSH but spawns no mobs
+
+/obj/machinery/power/bluespace_tap/safe
+	counts = FALSE
+
+/obj/structure/spawner/nether/bluespace_tap/safe
+	mob_types = list(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/dog/fox, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/penguin)
+	var/list/cuddle_timer = list()
+	sucked_in_message = "Touching the portal, you are quickly pulled through into a world of unimaginable fluff!"
+
+/obj/structure/spawner/nether/bluespace_tap/safe/process()
+	for(var/mob/living/M in contents)
+		if(cuddle_timer[M.name] <= 0)
+			M.forceMove(loc)
+		else
+			to_chat(M,"<span class='info'>You are too busy petting cute animals to leave this place</span>")
+			cuddle_timer[M.name]--
+
+/obj/structure/spawner/nether/bluespace_tap/safe/attack_hand(mob/user)
+	. = ..()
+	cuddle_timer["[user.name]"] = 3
 
 #undef BASE_ENERGY_CONVERSION
 #undef BASE_POINTS

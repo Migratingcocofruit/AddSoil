@@ -221,6 +221,10 @@
 	var/next_event_time
 	/// Run S-Class event? So we can only run one S-class event per round per crystal
 	var/has_run_sclass = FALSE
+	/// Iminnent delamination warning channel
+	var/explode_channel = "Common"
+	/// Integrity loss warning channel
+	var/damage_channel = "Engineering"
 
 
 /obj/machinery/atmospherics/supermatter_crystal/Initialize(mapload)
@@ -328,7 +332,7 @@
 		var/turf/T = get_turf(M)
 		if(istype(T) && atoms_share_level(T, src)) // if the player is on the same zlevel as the SM shared
 			SEND_SOUND(M, sound('sound/machines/engine_alert2.ogg')) // then send them the sound file
-	radio.autosay(speaking, name, null)
+	radio.autosay(speaking, name, explode_channel)
 	for(var/i in SUPERMATTER_COUNTDOWN_TIME to 0 step -10)
 		if(!processes) // Stop exploding if you're frozen by an admin, damn you
 			cut_overlay(causality_field, TRUE)
@@ -336,7 +340,7 @@
 			damage = explosion_point - 1 // One point below exploding, so it will re-start the countdown once unfrozen
 			return
 		if(damage < explosion_point) // Cutting it a bit close there engineers
-			radio.autosay("<span class='big'>[safe_alert] Failsafe has been disengaged.</span>", name, null)
+			radio.autosay("<span class='big'>[safe_alert] Failsafe has been disengaged.</span>", name, explode_channel)
 			cut_overlay(causality_field, TRUE)
 			final_countdown = FALSE
 			remove_filter(list("outline", "icon"))
@@ -348,7 +352,7 @@
 			speaking = "<b>[DisplayTimeText(i, TRUE)] remain before causality stabilization.</b>"
 		else
 			speaking = "<span class='reallybig'>[i * 0.1]...</span>"
-		radio.autosay(speaking, name, null)
+		radio.autosay(speaking, name, explode_channel)
 		sleep(10)
 
 	explode()
@@ -655,27 +659,27 @@
 
 			//Oh shit it's bad, time to freak out
 			if(damage > emergency_point)
-				radio.autosay("<span class='big'>[emergency_alert] Integrity: [get_integrity()]%</span>", name, null)
+				radio.autosay("<span class='big'>[emergency_alert] Integrity: [get_integrity()]%</span>", name, damage_channel)
 				lastwarning = REALTIMEOFDAY
 				if(!has_reached_emergency)
 					investigate_log("has reached the emergency point for the first time.", "supermatter")
 					message_admins("[src] has reached the emergency point [ADMIN_JMP(src)].")
 					has_reached_emergency = TRUE
 			else if(damage >= damage_archived) // The damage is still going up
-				radio.autosay("<b>[warning_alert] Integrity: [get_integrity()]%</b>", name, "Engineering")
+				radio.autosay("<b>[warning_alert] Integrity: [get_integrity()]%</b>", name, damage_channel)
 				lastwarning = REALTIMEOFDAY - (WARNING_DELAY * 5)
 
 			else                                                 // Phew, we're safe
-				radio.autosay("<b>[safe_alert] Integrity: [get_integrity()]%</b>", name, "Engineering")
+				radio.autosay("<b>[safe_alert] Integrity: [get_integrity()]%</b>", name, damage_channel)
 				lastwarning = REALTIMEOFDAY
 
 			if(power > POWER_PENALTY_THRESHOLD)
-				radio.autosay("<b>Warning: Hyperstructure has reached dangerous power level.</b>", name, "Engineering")
+				radio.autosay("<b>Warning: Hyperstructure has reached dangerous power level.</b>", name, damage_channel)
 				if(powerloss_inhibitor < 0.5)
-					radio.autosay("<b>DANGER: CHARGE INERTIA CHAIN REACTION IN PROGRESS.</b>", name, "Engineering")
+					radio.autosay("<b>DANGER: CHARGE INERTIA CHAIN REACTION IN PROGRESS.</b>", name, damage_channel)
 
 			if(combined_gas > MOLE_CRUNCH_THRESHOLD)
-				radio.autosay("<b>Warning: Critical coolant mass reached.</b>", name, "Engineering")
+				radio.autosay("<b>Warning: Critical coolant mass reached.</b>", name, damage_channel)
 		//Boom (Mind blown)
 		if(damage > explosion_point)
 			countdown()
@@ -1004,11 +1008,6 @@
 /obj/machinery/atmospherics/supermatter_crystal/engine
 	is_main_engine = TRUE
 
-/obj/machinery/atmospherics/supermatter_crystal/safe
-	name = "safe supermater crystal"
-	desc = "A safer version of the supermater crystal. Will not dust living beings or explode"
-	var/safety_shutdown = FALSE
-
 /obj/machinery/atmospherics/supermatter_crystal/shard
 	name = "supermatter shard"
 	desc = "A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure."
@@ -1260,6 +1259,21 @@
 	has_been_powered = TRUE
 	make_next_event_time()
 
+// Safe Supermatter Crystal
+
+/obj/machinery/atmospherics/supermatter_crystal/safe
+	name = "safe supermater crystal"
+	desc = "A safer version of the supermater crystal. Will not dust living beings or explode"
+	var/safety_shutdown = FALSE
+	explode_channel = "Engineer Training"
+	damage_channel = "Engineer Training"
+
+/// Calles parent and sets the radio to the training frequency
+/obj/machinery/atmospherics/supermatter_crystal/Initialize(mapload)
+	. = ..()
+	radio.config(list("Engineer Training"))
+	radio.frequency = ENG_TRNE_FREQ
+
 /// Safe crystal shuts down instead of exploding
 /obj/machinery/atmospherics/supermatter_crystal/safe/explode()
 	safety_shutdown = TRUE
@@ -1310,6 +1324,7 @@
 			if(BLUESPACE_ANOMALY)
 				new /obj/effect/anomaly/bluespace/safe(L, 24 SECONDS, FALSE, FALSE, TRUE)
 
+/// Knocks down and stuns instead of dusting
 /obj/machinery/atmospherics/supermatter_crystal/safe/dust_mob(mob/living/nom, vis_msg, mob_msg, cause)
 	if(nom.incorporeal_move || nom.status_flags & GODMODE)
 		return
@@ -1322,7 +1337,7 @@
 	nom.visible_message(vis_msg, mob_msg, "<span class='italics'>You hear an ear shattering noise as your whole body reverberates.</span>")
 	nom.Weaken(2 SECONDS)
 
-/obj/machinery/atmospherics/supermatter_crystal/Bumped(atom/movable/AM)
+/obj/machinery/atmospherics/supermatter_crystal/safe/Bumped(atom/movable/AM)
 	if(HAS_TRAIT(AM, TRAIT_SUPERMATTER_IMMUNE))
 		return
 	if(isliving(AM))
@@ -1337,10 +1352,14 @@
 		AM.visible_message("<span class='danger'>[AM] smacks into [src] and rapidly flashes to ash.</span>", null,\
 		"<span class='italics'>You hear a loud crack as you are washed with a wave of heat.</span>")
 		playsound(get_turf(src), 'sound/effects/supermatter.ogg', 50, TRUE)
-		Consume()
+		Consume(AM)
 	else
 		return
 
+/// Normal zap but without explosions
+/obj/machinery/atmospherics/supermatter_crystal/safe/supermatter_zap(atom/zapstart = src, range = 5, zap_str = 4000, zap_flags = ZAP_SUPERMATTER_FLAGS, list/targets_hit = list())
+	zap_flags &= ~ZAP_MACHINE_EXPLOSIVE
+	return ..(zapstart, range, zap_str, zap_flags, targets_hit)
 
 #undef HALLUCINATION_RANGE
 #undef GRAVITATIONAL_ANOMALY

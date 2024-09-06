@@ -112,3 +112,47 @@
 	dufflebag = /obj/item/storage/backpack/duffel/atmos
 	box = /obj/item/storage/box/engineer
 
+/datum/job/engineer_trainee
+	title = "Engineer Trainee"
+	flag = JOB_CHIEF
+	department_flag = JOBCAT_ENGSEC
+	total_positions = 1
+	spawn_positions = 1
+	job_department_flags = DEP_FLAG_COMMAND | DEP_FLAG_ENGINEERING
+	supervisors = "the captain"
+	department_head = list("Captain")
+	selection_color = "#ffeeaa"
+	req_admin_notify = 1
+	department_account_access = TRUE
+	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS,
+						ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_ATMOSPHERICS, ACCESS_EVA,
+						ACCESS_HEADS, ACCESS_CONSTRUCTION, ACCESS_SEC_DOORS,
+						ACCESS_CE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_MINISAT, ACCESS_MINERAL_STOREROOM, ACCESS_WEAPONS)
+	minimal_player_age = 21
+	exp_map = list(EXP_TYPE_ENGINEERING = 1200)
+	blacklisted_disabilities = list(DISABILITY_FLAG_BLIND, DISABILITY_FLAG_DEAF, DISABILITY_FLAG_MUTE, DISABILITY_FLAG_DIZZY, DISABILITY_FLAG_NERVOUS, DISABILITY_FLAG_LISP)
+	missing_limbs_allowed = FALSE
+	outfit = /datum/outfit/job/chief_engineer
+	important_information = "This role requires you to coordinate a department. You are required to be familiar with Standard Operating Procedure (Engineering), basic job duties, and act professionally (roleplay)."
+
+/datum/outfit/job/chief_engineer
+	name = "Chief Engineer"
+	jobtype = /datum/job/chief_engineer
+
+	uniform = /obj/item/clothing/under/rank/engineering/chief_engineer
+	belt = /obj/item/storage/belt/utility/chief/full
+	gloves = /obj/item/clothing/gloves/color/black
+	shoes = /obj/item/clothing/shoes/brown
+	head = /obj/item/clothing/head/hardhat/white
+	l_ear = /obj/item/radio/headset/heads/ce
+	id = /obj/item/card/id/ce
+	l_pocket = /obj/item/t_scanner
+	pda = /obj/item/pda/heads/ce
+	backpack_contents = list(
+		/obj/item/melee/classic_baton/telescopic = 1
+	)
+
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/engineering
+	box = /obj/item/storage/box/engineer

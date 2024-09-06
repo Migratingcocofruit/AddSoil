@@ -9,6 +9,7 @@ SUBSYSTEM_DEF(radio)
 	"Procedure"		= PROC_FREQ,
 	"Medical"		= MED_FREQ,
 	"Engineering"	= ENG_FREQ,
+	"Engineer Training" = ENG_TRNE_FREQ,
 	"Security" 		= SEC_FREQ,
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,

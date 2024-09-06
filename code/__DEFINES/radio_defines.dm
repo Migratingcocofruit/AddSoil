@@ -37,6 +37,9 @@
 #define MED_I_FREQ 1485
 #define SEC_I_FREQ 1475
 
+// Engineering Trainee Frequency
+#define ENG_TRNE_FREQ 1201
+
 // Transmission methods
 #define TRANSMISSION_WIRE	0
 #define TRANSMISSION_RADIO	1
