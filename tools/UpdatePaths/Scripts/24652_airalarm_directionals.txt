@@ -29,3 +29,13 @@
 /obj/machinery/alarm/syndicate{pixel_x=24} : /obj/machinery/alarm/syndicate/directional/east{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
 /obj/machinery/alarm/syndicate{pixel_y=-24} : /obj/machinery/alarm/syndicate/directional/south{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
 /obj/machinery/alarm/syndicate{pixel_y=24} : /obj/machinery/alarm/syndicate/directional/north{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+
+/obj/machinery/alarm/engineer_training{pixel_x=-24} : /obj/machinery/alarm/engineer_training/directional/west{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training{pixel_x=24} : /obj/machinery/alarm/engineer_training/directional/east{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training{pixel_y=-24} : /obj/machinery/alarm/engineer_training/directional/south{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training{pixel_y=24} : /obj/machinery/alarm/engineer_training/directional/north{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+
+/obj/machinery/alarm/engineer_training/engine{pixel_x=-24} : /obj/machinery/alarm/engineer_training/engine/directional/west{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training/engine{pixel_x=24} : /obj/machinery/alarm/engineer_training/engine/directional/east{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training/engine{pixel_y=-24} : /obj/machinery/alarm/engineer_training/engine/directional/south{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}
+/obj/machinery/alarm/engineer_training/engine{pixel_y=24} : /obj/machinery/alarm/engineer_training/engine/directional/north{@OLD;dir=@SKIP;name=@SKIP;pixel_x=@SKIP;pixel_y=@SKIP}

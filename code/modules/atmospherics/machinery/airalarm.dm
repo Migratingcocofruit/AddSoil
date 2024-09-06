@@ -91,6 +91,8 @@
 
 	var/report_danger_level = TRUE
 
+	var/atmos_control_id = 0
+
 /obj/machinery/alarm/monitor
 	report_danger_level = FALSE
 
@@ -106,6 +108,17 @@
 	remote_control = FALSE
 	req_access = list(ACCESS_SYNDICATE)
 	req_one_access = list()
+
+/// Engineer training base
+/obj/machinery/alarm/engineer_training
+	req_one_access = list(ACCESS_ENGINEER_TRAINEE)
+	atmos_control_id = 1
+
+/// Engineer training base SM
+/obj/machinery/alarm/engineer_training/engine
+	locked = FALSE
+	custom_name = "engine air alarm"
+	atmos_control_id = 1
 
 /obj/machinery/alarm/monitor/server
 	preset = AALARM_PRESET_SERVER

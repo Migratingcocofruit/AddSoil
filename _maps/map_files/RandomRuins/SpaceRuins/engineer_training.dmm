@@ -23,13 +23,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating/airless,
 /area/space/nearstation)
-"agN" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "agV" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
@@ -45,11 +38,6 @@
 "ahW" = (
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos)
@@ -76,6 +64,14 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/gravitygenerator)
+"akN" = (
+/obj/machinery/power/solar_control{
+	dir = 4;
+	name = "Aft Port Solar Control"
+	},
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "akW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -131,10 +127,10 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "arT" = (
+/obj/item/rpd,
+/obj/item/rpd,
+/obj/item/rpd,
 /obj/structure/table,
-/obj/item/rpd,
-/obj/item/rpd,
-/obj/item/rpd,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "ash" = (
@@ -163,15 +159,6 @@
 /obj/structure/disposaloutlet,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
-"auW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "avu" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plasteel,
@@ -222,6 +209,10 @@
 "ayq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/alarm/engineer_training{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "ayR" = (
@@ -262,8 +253,8 @@
 /obj/item/storage/box/lights/mixed,
 /obj/item/clothing/gloves/color/black,
 /obj/item/clothing/gloves/color/black,
-/obj/structure/table,
 /obj/item/clothing/gloves/color/black,
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "aFN" = (
@@ -273,6 +264,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
+"aFX" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/construction)
 "aGU" = (
 /obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
@@ -475,7 +470,6 @@
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/structure/table,
 /obj/item/crowbar/engineering,
 /obj/item/flashlight{
 	pixel_x = 1;
@@ -485,6 +479,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "aYm" = (
@@ -603,6 +598,16 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"bdE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/alarm/engineer_training{
+	dir = 4;
+	pixel_x = 24
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "bdG" = (
 /obj/machinery/atmospherics/portable/canister/air{
 	anchored = 1
@@ -645,7 +650,6 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "bkr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -653,6 +657,12 @@
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
@@ -718,8 +728,8 @@
 /obj/item/airlock_electronics,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
-/obj/structure/table,
 /obj/item/t_scanner,
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "bvt" = (
@@ -744,15 +754,10 @@
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/controlroom)
 "bDc" = (
-/obj/structure/table,
-/obj/item/book/manual/wiki/engineering_guide,
-/obj/item/book/manual/engineering_particle_accelerator{
-	pixel_y = 6
-	},
-/obj/item/book/manual/engineering_singularity_safety,
 /obj/machinery/camera{
 	c_tag = "Engineering North-West"
 	},
+/obj/structure/closet/firecloset,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "bDV" = (
@@ -809,7 +814,10 @@
 	pixel_y = -3
 	},
 /obj/item/clothing/mask/gas,
-/obj/machinery/alarm/directional/west,
+/obj/machinery/alarm/engineer_training{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "caution"
@@ -889,6 +897,10 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
+"bMi" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/equipmentstorage)
 "bMI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plasteel{
@@ -943,10 +955,11 @@
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "bTe" = (
-/obj/structure/table,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table,
+/obj/item/circuitboard/machine/bluespace_tap/safe,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/construction)
 "bUo" = (
@@ -1145,20 +1158,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/controlroom)
-"cut" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/sign/vacuum/external{
-	pixel_x = 32
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "cuZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1237,8 +1236,8 @@
 "cEr" = (
 /obj/machinery/airlock_controller/air_cycler{
 	pixel_x = 1;
-	req_access_txt = "10;13";
-	vent_link_id = "train_solars";
+	req_access_txt = "302s";
+	vent_link_id = "train_solars_vent";
 	ext_door_link_id = "train_eng_solars_ext";
 	int_door_link_id = "train_eng_solars_int";
 	ext_button_link_id = "train_eng_solars_btn_ext";
@@ -1251,6 +1250,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/construction)
 "cFn" = (
@@ -1427,7 +1427,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/directional/north,
+/obj/machinery/alarm/engineer_training{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/sleepers)
 "cIi" = (
@@ -1484,12 +1487,12 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/control)
 "cJo" = (
-/obj/machinery/alarm/directional/south,
 /obj/machinery/autolathe/syndicate,
+/obj/structure/table,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "cJp" = (
-/obj/machinery/computer/atmoscontrol{
+/obj/machinery/computer/atmoscontrol/engineer_training{
 	dir = 4
 	},
 /turf/simulated/floor/plasteel,
@@ -1609,10 +1612,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "cLw" = (
-/obj/item/radio/intercom{
-	name = "south bump";
-	pixel_y = -28
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -1722,7 +1721,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cMX" = (
-/obj/machinery/alarm/directional/east,
 /obj/structure/table,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/plasteel,
@@ -1798,7 +1796,10 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/alarm/directional/west,
+/obj/machinery/alarm/engineer_training{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -1860,6 +1861,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cPq" = (
@@ -1887,15 +1893,6 @@
 /obj/structure/lattice/catwalk,
 /turf/space,
 /area/ruin/space/engineer_training_facility/solar/fore_port)
-"cPB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "cPC" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable{
@@ -1934,7 +1931,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/table,
 /obj/item/stack/rods{
 	amount = 50
 	},
@@ -1953,6 +1949,7 @@
 /obj/item/stack/rods{
 	amount = 50
 	},
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cPQ" = (
@@ -2185,7 +2182,6 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
 	},
-/obj/structure/closet/secure_closet/engineering_welding,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "cRw" = (
@@ -2226,20 +2222,20 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cRT" = (
-/obj/structure/table,
 /obj/item/painter,
 /obj/item/painter{
 	pixel_x = -4;
 	pixel_y = 4
 	},
 /obj/item/painter,
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cRU" = (
-/obj/structure/table,
 /obj/item/stack/ore/bluespace_crystal/refined{
 	amount = 50
 	},
+/obj/structure/table,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "cRV" = (
@@ -2252,7 +2248,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cSa" = (
-/obj/structure/table,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/plasmarglass/fifty,
@@ -2260,6 +2255,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 50
 	},
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cSb" = (
@@ -2550,6 +2546,12 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "cUe" = (
@@ -2558,6 +2560,9 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "cUh" = (
@@ -2565,6 +2570,12 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
@@ -2655,12 +2666,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos/control)
-"cVi" = (
-/obj/structure/chair{
-	dir = 1
-	},
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "cVj" = (
 /obj/structure/sign/radiation/rad_area{
 	pixel_y = -32
@@ -2687,16 +2692,17 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "cVl" = (
-/obj/structure/cable,
-/obj/machinery/power/solar_control{
-	dir = 4;
-	name = "Aft Port Solar Control"
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "cVm" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/directional/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "cVo" = (
@@ -2817,7 +2823,6 @@
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/engine)
 "cVS" = (
-/obj/machinery/alarm/engine/directional/west,
 /obj/machinery/power/apc/critical/directional/north{
 	shock_proof = 1
 	},
@@ -2830,6 +2835,10 @@
 	icon_state = "0-4"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/alarm/engineer_training/engine{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/engine)
 "cVT" = (
@@ -4254,24 +4263,21 @@
 "dmD" = (
 /turf/simulated/wall/r_wall,
 /area/space/nearstation)
-"dpd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "dpR" = (
 /obj/structure/rack{
 	dir = 8;
 	layer = 2.9
 	},
-/obj/machinery/alarm/directional/north,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/alarm/engineer_training{
+	dir = 1;
+	pixel_y = 24
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/secure_storage)
 "dsx" = (
@@ -4284,9 +4290,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/storage/belt/utility,
-/obj/item/storage/belt/utility,
-/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "dsN" = (
@@ -4331,13 +4334,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
-"dtq" = (
-/obj/item/clothing/glasses/welding,
-/obj/item/clothing/glasses/welding,
-/obj/item/clothing/glasses/welding,
-/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "dts" = (
@@ -4398,10 +4394,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/radio/intercom{
-	name = "north bump";
-	pixel_y = 28
-	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
 "dCC" = (
@@ -4440,6 +4432,10 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"dKf" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/pre_engine)
 "dOd" = (
 /obj/machinery/atmospherics/binary/valve/digital{
 	color = "";
@@ -4464,11 +4460,14 @@
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
 "dQa" = (
-/obj/machinery/alarm/directional/west,
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/alarm/engineer_training{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
 "dZF" = (
@@ -4894,11 +4893,14 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "fwZ" = (
-/obj/machinery/alarm/directional/north,
 /obj/machinery/computer/general_air_control{
 	dir = 4;
 	name = "Tank Monitor";
 	autolink_sensors = list("n2_sensor" = "Nitrogen", "o2_sensor" = "Oxygen", "co2_sensor" = "Carbon Dioxide", "tox_sensor" = "Toxins", "n2o_sensor" = "Nitrous Oxide", "waste_sensor" = "Gas Mix Tank")
+	},
+/obj/machinery/alarm/engineer_training{
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/control)
@@ -5007,11 +5009,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos)
 "giQ" = (
@@ -5059,10 +5056,6 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
-"gCE" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "gDJ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -5139,13 +5132,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
-"gPu" = (
-/obj/machinery/atmospherics/unary/portables_connector{
-	dir = 4
-	},
-/obj/machinery/atmospherics/portable/canister/air,
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "gRE" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -5227,27 +5213,22 @@
 /area/ruin/space/engineer_training_facility/atmos)
 "hsr" = (
 /obj/machinery/light,
+/obj/machinery/alarm/engineer_training{
+	pixel_y = -24
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
-"hul" = (
-/obj/machinery/alarm/directional/north{
-	dir = 8;
-	pixel_y = 32;
-	pixel_x = 9
-	},
-/turf/simulated/wall/r_wall,
-/area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "hvL" = (
 /obj/item/storage/belt/utility,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 5
 	},
-/obj/structure/table,
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 5
 	},
 /obj/item/storage/belt/utility,
 /obj/item/storage/toolbox/mechanical,
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "hyQ" = (
@@ -5454,10 +5435,13 @@
 	},
 /turf/simulated/floor/plating/airless,
 /area/ruin/space/engineer_training_facility/controlroom)
-"iBS" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
+"iwo" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
+/area/ruin/space/engineer_training_facility/construction)
 "iGv" = (
 /obj/machinery/door/poddoor/preopen{
 	id_tag = "atmos";
@@ -5644,7 +5628,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4;
-	autolink_id = "train_solars"
+	autolink_id = "train_solars_vent"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -5714,17 +5698,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/machinery/alarm/directional/east,
+/obj/machinery/alarm/engineer_training{
+	dir = 4;
+	pixel_x = 24
+	},
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/gravitygenerator)
 "kep" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos)
 "khK" = (
@@ -5819,9 +5801,11 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "kzu" = (
-/obj/machinery/alarm/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/machinery/alarm/engineer_training{
+	pixel_y = -24
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
@@ -5974,14 +5958,12 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "lnQ" = (
@@ -6073,7 +6055,6 @@
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/sleepers)
 "lLC" = (
-/obj/machinery/alarm/directional/west,
 /obj/effect/turf_decal/delivery/partial{
 	dir = 1
 	},
@@ -6081,6 +6062,10 @@
 	dir = 4
 	},
 /obj/machinery/disposal,
+/obj/machinery/alarm/engineer_training{
+	dir = 8;
+	pixel_x = -24
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
 "lPC" = (
@@ -6099,6 +6084,12 @@
 	icon_state = "4-8"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "lSr" = (
@@ -6152,6 +6143,10 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
+"mrB" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/construction)
 "mtc" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable{
@@ -6175,7 +6170,17 @@
 /area/ruin/space/engineer_training_facility/gravitygenerator)
 "mDi" = (
 /obj/structure/table,
-/obj/item/circuitboard/machine/bluespace_tap/safe,
+/obj/item/book/manual/wiki/engineering_guide,
+/obj/item/book/manual/engineering_singularity_safety,
+/obj/item/book/manual/engineering_particle_accelerator{
+	pixel_y = 6
+	},
+/obj/item/book/manual/supermatter_engine,
+/obj/item/book/manual/wiki/engineering_construction,
+/obj/item/book/manual/wiki/hacking{
+	pixel_x = 3;
+	pixel_y = 3
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/construction)
 "mJT" = (
@@ -6797,6 +6802,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "qis" = (
@@ -6961,10 +6969,6 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
-"qLK" = (
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "qRu" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -7249,16 +7253,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/engine)
-"sNP" = (
-/obj/structure/table,
-/obj/item/book/manual/wiki/hacking{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/book/manual/wiki/engineering_construction,
-/obj/item/book/manual/supermatter_engine,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "sOz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7566,11 +7560,11 @@
 	},
 /area/ruin/space/engineer_training_facility/smes)
 "uvf" = (
+/obj/item/stack/sheet/plasteel/fifty,
+/obj/item/stack/sheet/plasteel/fifty,
+/obj/item/stack/sheet/mineral/plastitanium/fifty,
+/obj/item/stack/sheet/mineral/plastitanium/fifty,
 /obj/structure/table,
-/obj/item/stack/sheet/plasteel/fifty,
-/obj/item/stack/sheet/plasteel/fifty,
-/obj/item/stack/sheet/mineral/plastitanium/fifty,
-/obj/item/stack/sheet/mineral/plastitanium/fifty,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "uyk" = (
@@ -8067,10 +8061,10 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "xBm" = (
-/obj/structure/table,
 /obj/item/stack/ore/bluespace_crystal/refined{
 	amount = 50
 	},
+/obj/structure/table,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "xCk" = (
@@ -8104,6 +8098,9 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
+"xSr" = (
+/turf/simulated/wall/indestructible/fakeglass,
+/area/space)
 "xSF" = (
 /obj/machinery/access_button{
 	autolink_id = "train_eng_solars_btn_ext";
@@ -8129,17 +8126,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/controlroom)
-"xWq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/atmos)
 "xWO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -8161,6 +8147,11 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/atmos_personal,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "ygY" = (
@@ -8210,68 +8201,69 @@
 /area/ruin/space/engineer_training_facility/controlroom)
 
 (1,1,1) = {"
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 "}
 (2,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -8330,10 +8322,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (3,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -8392,10 +8384,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (4,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -8454,10 +8446,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (5,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -8516,10 +8508,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (6,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -8578,11 +8570,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (7,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8641,10 +8632,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (8,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8703,10 +8694,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (9,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8765,10 +8756,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (10,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8827,10 +8818,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (11,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8889,10 +8880,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (12,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -8951,10 +8942,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (13,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9013,10 +9004,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (14,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9075,10 +9066,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (15,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9137,10 +9128,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (16,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9199,10 +9190,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (17,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9261,10 +9252,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (18,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9323,10 +9314,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (19,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9385,10 +9376,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (20,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9447,10 +9438,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (21,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9509,10 +9500,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (22,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9571,10 +9562,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (23,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9633,10 +9624,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (24,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9695,10 +9686,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (25,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9757,10 +9748,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (26,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9819,10 +9810,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (27,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9881,10 +9872,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (28,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -9943,10 +9934,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (29,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10005,10 +9996,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (30,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10067,10 +10058,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (31,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10129,10 +10120,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (32,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10191,10 +10182,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (33,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10253,10 +10244,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (34,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10315,10 +10306,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (35,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10338,7 +10329,7 @@ cVd
 cSR
 gOm
 cVl
-cRA
+akN
 bFC
 rne
 bUv
@@ -10377,10 +10368,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (36,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10439,10 +10430,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (37,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10462,7 +10453,7 @@ cVd
 cST
 cUd
 cVm
-cRA
+bdE
 kkk
 wDS
 cnh
@@ -10501,10 +10492,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (38,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10563,10 +10554,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (39,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10625,10 +10616,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (40,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10687,10 +10678,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (41,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10708,7 +10699,7 @@ bka
 bka
 hsr
 hTA
-gCE
+uVt
 uVt
 uVt
 uVt
@@ -10749,10 +10740,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (42,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10770,8 +10761,8 @@ bka
 bka
 bka
 bHY
-sNP
-iBS
+cSv
+uVt
 uVt
 uVt
 wWn
@@ -10811,10 +10802,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (43,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10833,7 +10824,7 @@ bka
 cRU
 bHY
 bDc
-cVi
+uVt
 uVt
 uVt
 cVk
@@ -10873,10 +10864,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (44,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10895,7 +10886,7 @@ bka
 bka
 nsU
 dsI
-dtq
+uVt
 uVt
 uVt
 wWn
@@ -10935,10 +10926,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (45,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -10997,10 +10988,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (46,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11018,7 +11009,7 @@ bka
 bka
 arT
 bHY
-uVt
+dKf
 uVt
 cZP
 ciU
@@ -11059,10 +11050,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (47,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11080,7 +11071,7 @@ bka
 bka
 cHU
 hTA
-uVt
+dKf
 uVt
 uVt
 uVt
@@ -11121,10 +11112,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (48,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11152,7 +11143,7 @@ cXJ
 uVt
 uVt
 uVt
-cSv
+uVt
 cYQ
 uDI
 gMc
@@ -11183,10 +11174,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (49,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11214,7 +11205,7 @@ cXJ
 uVt
 uVt
 uVt
-qLK
+uVt
 cYQ
 ruR
 tEq
@@ -11245,10 +11236,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (50,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11307,10 +11298,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (51,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11337,7 +11328,7 @@ akW
 cXJ
 cHj
 cYQ
-cPX
+ePY
 fYe
 cSU
 dyH
@@ -11369,10 +11360,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (52,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11399,7 +11390,7 @@ kMv
 cXJ
 cHj
 cYQ
-cPX
+ePY
 ePY
 cYQ
 lbX
@@ -11431,10 +11422,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (53,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11461,7 +11452,7 @@ uVt
 cXJ
 bcB
 cSU
-cPX
+ePY
 ePY
 cYQ
 kjN
@@ -11493,17 +11484,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (54,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
 aaa
 aaa
 hTA
-cQN
+mrB
 cQN
 cQN
 cQN
@@ -11555,17 +11546,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (55,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
 aaa
 aaa
 hTA
-cQN
+aFX
 cQN
 cQN
 cQN
@@ -11617,10 +11608,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (56,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -11628,7 +11619,7 @@ aaa
 aaa
 hTA
 cSO
-bTe
+iwo
 cSO
 cSO
 cSO
@@ -11679,10 +11670,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (57,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 cHQ
@@ -11741,10 +11732,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (58,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 cHQ
@@ -11803,10 +11794,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (59,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 bLF
@@ -11865,10 +11856,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (60,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 bWT
@@ -11927,10 +11918,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (61,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 bWT
@@ -11989,10 +11980,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (62,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 wJB
@@ -12051,10 +12042,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (63,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 wJB
@@ -12113,10 +12104,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (64,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 koB
@@ -12175,10 +12166,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (65,1,1) = {"
-aaa
+xSr
 aaa
 cHQ
 cHQ
@@ -12197,7 +12188,7 @@ bHZ
 cPq
 buq
 mZs
-cRX
+bMi
 atF
 cyZ
 cYU
@@ -12222,11 +12213,6 @@ cUo
 cPX
 cSU
 aaa
-aab
-aaa
-cZS
-cZS
-cZS
 aaa
 aaa
 aaa
@@ -12238,9 +12224,14 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+xSr
 "}
 (66,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 cHQ
@@ -12283,12 +12274,6 @@ cZS
 cZS
 cZS
 cZS
-cZS
-cZS
-cZS
-cZS
-gPu
-cZS
 aaa
 aaa
 aaa
@@ -12300,9 +12285,15 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+xSr
 "}
 (67,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12338,18 +12329,6 @@ geJ
 ahW
 kep
 kep
-kep
-ahW
-kep
-kep
-kep
-cut
-xWq
-cPB
-cPB
-auW
-agN
-dpd
 cZS
 aaa
 aaa
@@ -12362,9 +12341,21 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+xSr
 "}
 (68,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12401,18 +12392,6 @@ cZS
 cZS
 cZS
 cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
-cZS
 aaa
 aaa
 aaa
@@ -12424,9 +12403,21 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+xSr
 "}
 (69,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12485,10 +12476,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (70,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12547,10 +12538,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (71,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12609,10 +12600,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (72,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12671,15 +12662,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (73,1,1) = {"
+xSr
 aaa
 aaa
 aaa
 aaa
 aaa
-aaa
 dgS
 dgS
 dgS
@@ -12688,7 +12679,7 @@ dgS
 dgS
 dgS
 dgS
-hul
+dgS
 axb
 cBS
 cBS
@@ -12733,10 +12724,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (74,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12795,10 +12786,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (75,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12857,10 +12848,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (76,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12919,10 +12910,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (77,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -12981,10 +12972,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (78,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13043,10 +13034,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (79,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13105,10 +13096,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (80,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13167,10 +13158,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (81,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13229,10 +13220,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (82,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13291,10 +13282,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (83,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13353,10 +13344,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (84,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13415,10 +13406,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (85,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13477,10 +13468,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (86,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13539,10 +13530,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (87,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13601,10 +13592,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (88,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13663,10 +13654,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (89,1,1) = {"
-aaa
+xSr
 aaa
 aaa
 aaa
@@ -13725,9 +13716,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xSr
 "}
 (90,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -13786,10 +13778,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (91,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -13848,10 +13840,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (92,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -13910,10 +13902,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (93,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -13972,10 +13964,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (94,1,1) = {"
+xSr
 aaa
 aaa
 aaa
@@ -14034,68 +14026,67 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+xSr
 "}
 (95,1,1) = {"
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
+xSr
 "}

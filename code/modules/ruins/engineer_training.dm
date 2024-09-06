@@ -54,7 +54,7 @@
 /obj/item/mod/control/pre_equipped/atmospheric/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
-//radio
+// Radio
 
 /obj/item/radio/headset/headset_eng_trainee
 	name = "engineering trainee radio headset"
@@ -67,4 +67,9 @@
 	. = ..()
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
+
+// Atmos Control
+
+/obj/machinery/computer/atmoscontrol/engineer_training
+	atmos_control_id = ENG_TRN_ATMOS_CONTROL
 

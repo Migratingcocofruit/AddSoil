@@ -506,10 +506,12 @@ GLOBAL_LIST_EMPTY(gas_sensors)
 	circuit = /obj/item/circuitboard/atmoscontrol
 	req_access = list(ACCESS_ATMOSPHERICS)
 	var/datum/ui_module/atmos_control/atmos_control
+	var/atmos_control_id = 0
 
 /obj/machinery/computer/atmoscontrol/Initialize(mapload)
 	. = ..()
 	atmos_control = new(src)
+	atmos_control.atmos_control_id = atmos_control_id
 
 /obj/machinery/computer/atmoscontrol/Destroy()
 	QDEL_NULL(atmos_control)
@@ -528,6 +530,7 @@ GLOBAL_LIST_EMPTY(gas_sensors)
 
 /obj/machinery/computer/atmoscontrol/ui_interact(mob/user, datum/tgui/ui = null)
 	atmos_control.ui_interact(user, ui)
+
 
 #undef SENSOR_PRESSURE
 #undef SENSOR_TEMPERATURE
