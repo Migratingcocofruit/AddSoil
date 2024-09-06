@@ -53,6 +53,7 @@
 
 /obj/item/circuitboard/machine/bluespace_tap/safe
 	build_path = /obj/machinery/power/bluespace_tap/safe
+	board_name = "Safe Bluespace Harvester"
 
 /obj/effect/spawner/lootdrop/bluespace_tap
 	name = "bluespace harvester reward spawner"

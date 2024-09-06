@@ -511,6 +511,14 @@ GLOBAL_LIST_EMPTY(gas_sensors)
 /obj/machinery/computer/atmoscontrol/Initialize(mapload)
 	. = ..()
 	atmos_control = new(src)
+
+	for(var/area in GLOB.alarm_area_id)
+		if((get_area(src)).type in typesof(area))
+			if(!GLOB.alarm_area_id[area])
+				GLOB.alarm_area_id[area] = GLOB.next_alarm_id
+				GLOB.next_alarm_id++
+			atmos_control_id = GLOB.alarm_area_id[area]
+
 	atmos_control.atmos_control_id = atmos_control_id
 
 /obj/machinery/computer/atmoscontrol/Destroy()

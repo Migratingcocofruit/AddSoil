@@ -2,7 +2,7 @@
 
 /obj/item/card/id/engineer_trainee
 	name = "Engineer Trainee ID"
-	desc = "An Identification card for an engineer trainee"
+	desc = "An identification card for an engineer trainee"
 	icon_state = "engineering"
 	access = list(ACCESS_ENGINEER_TRAINEE, ACCESS_CE, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	untrackable = TRUE
@@ -19,6 +19,7 @@
 	mask = /obj/item/clothing/mask/gas
 	glasses = /obj/item/clothing/glasses/meson/engine
 	r_ear = /obj/item/radio/headset/headset_eng_trainee
+	r_pocket = /obj/item/t_scanner
 
 /datum/outfit/engineer_trainee/post_equip(mob/living/carbon/human/H)
 	. = ..()
@@ -67,9 +68,4 @@
 	. = ..()
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
-
-// Atmos Control
-
-/obj/machinery/computer/atmoscontrol/engineer_training
-	atmos_control_id = ENG_TRN_ATMOS_CONTROL
 

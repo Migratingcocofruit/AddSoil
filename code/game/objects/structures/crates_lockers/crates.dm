@@ -734,6 +734,18 @@
 	new /obj/machinery/power/emitter(src)
 	new /obj/machinery/power/emitter(src)
 
+/obj/structure/closet/crate/engineering/satelite
+	name = "Engineering Trainee Shield Satelite Crate"
+	desc= "A crate containing 6 satelites"
+
+/obj/structure/closet/crate/engineering/satelite/populate_contents()
+	new /obj/machinery/satellite/meteor_shield(src)
+	new /obj/machinery/satellite/meteor_shield(src)
+	new /obj/machinery/satellite/meteor_shield(src)
+	new /obj/machinery/satellite/meteor_shield(src)
+	new /obj/machinery/satellite/meteor_shield(src)
+	new /obj/machinery/satellite/meteor_shield(src)
+
 
 
 

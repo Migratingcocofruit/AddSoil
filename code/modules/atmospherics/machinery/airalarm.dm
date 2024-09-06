@@ -1,3 +1,7 @@
+GLOBAL_LIST_INIT(alarm_area_id, list("/area/ruin/space/engineer_training_facility"))
+
+GLOBAL_VAR_INIT(next_alarm_id, 1)
+
 // A datum for dealing with threshold limit values
 // used in /obj/machinery/alarm
 /datum/tlv
@@ -109,17 +113,6 @@
 	req_access = list(ACCESS_SYNDICATE)
 	req_one_access = list()
 
-/// Engineer training base
-/obj/machinery/alarm/engineer_training
-	req_one_access = list(ACCESS_ENGINEER_TRAINEE)
-	atmos_control_id = 1
-
-/// Engineer training base SM
-/obj/machinery/alarm/engineer_training/engine
-	locked = FALSE
-	custom_name = "engine air alarm"
-	atmos_control_id = 1
-
 /obj/machinery/alarm/monitor/server
 	preset = AALARM_PRESET_SERVER
 
@@ -207,6 +200,13 @@
 	. = ..()
 
 	alarm_area = get_area(src)
+
+	for(var/area in GLOB.alarm_area_id)
+		if(alarm_area.type in typesof(area))
+			if(!GLOB.alarm_area_id[area])
+				GLOB.alarm_area_id[area] = GLOB.next_alarm_id
+				GLOB.next_alarm_id++
+			atmos_control_id = GLOB.alarm_area_id[area]
 
 	if(custom_name)
 		name = custom_name
