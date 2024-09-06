@@ -82,6 +82,8 @@
 		/obj/item/mod/module/magboot,
 	)
 
+/obj/item/mod/control/pre_equipped/atmospheric/trainee
+	applied_cell = /obj/item/stock_parts/cell/high/slime
 
 /obj/item/mod/control/pre_equipped/advanced
 	theme = /datum/mod_theme/advanced
