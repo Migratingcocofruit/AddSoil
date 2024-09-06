@@ -1075,13 +1075,6 @@
 	else
 		..()
 
-/obj/item/card/id/engineer_trainee
-	name = "Engineer Trainee ID"
-	desc = "An Identification card for an engineer trainee"
-	icon_state = "engineering"
-	access = list(ACCESS_ENGINEER_TRAINEE, ACCESS_CE, ACCESS_MINERAL_STOREROOM)
-	untrackable = TRUE
-
 /obj/item/card/id/data
 	icon_state = "data"
 

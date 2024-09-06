@@ -1,3 +1,12 @@
+// ID
+
+/obj/item/card/id/engineer_trainee
+	name = "Engineer Trainee ID"
+	desc = "An Identification card for an engineer trainee"
+	icon_state = "engineering"
+	access = list(ACCESS_ENGINEER_TRAINEE, ACCESS_CE, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
+	untrackable = TRUE
+
 //outfit
 
 /datum/outfit/engineer_trainee
@@ -37,11 +46,13 @@
 	skin_tone = 255
 
 
-// Modsuit
+// Modsuits
 
 /obj/item/mod/control/pre_equipped/advanced/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
+/obj/item/mod/control/pre_equipped/atmospheric/trainee
+	applied_cell = /obj/item/stock_parts/cell/high/slime
 
 //radio
 

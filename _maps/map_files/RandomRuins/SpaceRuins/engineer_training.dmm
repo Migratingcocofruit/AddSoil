@@ -4311,7 +4311,7 @@
 /area/ruin/space/engineer_training_facility/atmos)
 "dtn" = (
 /obj/machinery/suit_storage_unit/atmos/secure{
-	suit_type = /obj/item/mod/control/pre_equipped/atmospheric/traineed4
+	suit_type = /obj/item/mod/control/pre_equipped/atmospheric/trainee
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
