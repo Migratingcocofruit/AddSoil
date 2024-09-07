@@ -95,8 +95,6 @@ GLOBAL_VAR_INIT(next_alarm_id, 1)
 
 	var/report_danger_level = TRUE
 
-	var/atmos_control_id = 0
-
 /obj/machinery/alarm/monitor
 	report_danger_level = FALSE
 
@@ -200,13 +198,6 @@ GLOBAL_VAR_INIT(next_alarm_id, 1)
 	. = ..()
 
 	alarm_area = get_area(src)
-
-	for(var/area in GLOB.alarm_area_id)
-		if(alarm_area.type in typesof(area))
-			if(!GLOB.alarm_area_id[area])
-				GLOB.alarm_area_id[area] = GLOB.next_alarm_id
-				GLOB.next_alarm_id++
-			atmos_control_id = GLOB.alarm_area_id[area]
 
 	if(custom_name)
 		name = custom_name

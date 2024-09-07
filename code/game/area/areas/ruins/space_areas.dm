@@ -144,8 +144,12 @@
 // Engineer Training Facility
 
 /area/ruin/space/engineer_training_facility
+	name = "Engineer Training Facility"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	tele_proof = TRUE
+	fire_cam_network = "Engineer Training Fire Alarms"
+	power_cam_network = "Engineer Training Power Alarms"
+	atmos_cam_network = "Engineer Training Atmos Alarms"
 
 /area/ruin/space/engineer_training_facility/sleepers
 	name = "\improper Engineer Training Facility Sleepers"
@@ -157,7 +161,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
 /area/ruin/space/engineer_training_facility/control
-	name = "Engineer Training Facility"
+	name = "Engineer Training Facility Engine Control"
 	icon_state = "engine_control"
 
 /area/space/engineer_training_facility/sleepers
@@ -165,7 +169,7 @@
 	icon_state = "engibreak"
 
 /area/ruin/space/engineer_training_facility/gear
-	name = "\improper Secondary Engineer Training Facility Storage"
+	name = "\improper Engineer Training Facility Secondary Storage"
 
 /area/ruin/space/engineer_training_facility/equipmentstorage
 	name = "Engineer Training Facility Equipment Storage"
@@ -173,7 +177,7 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ruin/space/engineer_training_facility/pre_engine
-	name = "\improper Engineering Area"
+	name = "\improper Engineer Training Facility Monitoring area"
 	icon_state = "engine_monitoring"
 
 /area/ruin/space/engineer_training_facility/controlroom

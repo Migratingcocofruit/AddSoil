@@ -506,20 +506,24 @@ GLOBAL_LIST_EMPTY(gas_sensors)
 	circuit = /obj/item/circuitboard/atmoscontrol
 	req_access = list(ACCESS_ATMOSPHERICS)
 	var/datum/ui_module/atmos_control/atmos_control
-	var/atmos_control_id = 0
+	var/parent_area_type = null
 
 /obj/machinery/computer/atmoscontrol/Initialize(mapload)
 	. = ..()
 	atmos_control = new(src)
 
-	for(var/area in GLOB.alarm_area_id)
-		if((get_area(src)).type in typesof(area))
-			if(!GLOB.alarm_area_id[area])
-				GLOB.alarm_area_id[area] = GLOB.next_alarm_id
-				GLOB.next_alarm_id++
-			atmos_control_id = GLOB.alarm_area_id[area]
+	parent_area_type = (get_area(src)).type
 
-	atmos_control.atmos_control_id = atmos_control_id
+	if(parent_area_type in subtypesof(/area/ruin))
+		// figure out which ruin we are on
+		while(type2parent(type2parent(parent_area_type)) != /area/ruin)
+			parent_area_type = type2parent(parent_area_type)
+	else if(parent_area_type in subtypesof(/area/station))
+		parent_area_type = /area/station
+	else
+		parent_area_type = null
+
+	atmos_control.parent_area_type = parent_area_type
 
 /obj/machinery/computer/atmoscontrol/Destroy()
 	QDEL_NULL(atmos_control)

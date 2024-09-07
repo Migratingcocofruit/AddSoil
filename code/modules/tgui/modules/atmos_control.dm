@@ -1,6 +1,6 @@
 /datum/ui_module/atmos_control
 	name = "Atmospherics Control"
-	var/atmos_control_id = STATION_ATMOS_CONTROL
+	var/parent_area_type = null
 
 /datum/ui_module/atmos_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
@@ -32,11 +32,11 @@
 	var/list/alarms_on_net = GLOB.air_alarms
 	var/target_z_level = level_name_to_num(MAIN_STATION)
 	// default value means main station atmos control
-	if(atmos_control_id > 0)
+	if(parent_area_type)
 		target_z_level = null
 		alarms_on_net = list()
 		for(var/obj/machinery/alarm/Alarm in GLOB.air_alarms)
-			if(Alarm.atmos_control_id == atmos_control_id)
+			if(Alarm.alarm_area.type in typesof(parent_area_type))
 				alarms_on_net += Alarm
 
 	var/list/data = list()

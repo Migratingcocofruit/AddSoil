@@ -68,3 +68,15 @@
 	. = ..()
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
+
+// Camera Console
+/obj/item/circuitboard/camera/engineering/enginner_training
+	build_path = /obj/machinery/computer/security/engineering/engineer_training
+
+/obj/item/circuitboard/camera/engineering/enginner_training/screwdriver_act(mob/living/user, obj/item/I)
+	return
+
+/obj/machinery/computer/security/engineering/engineer_training
+	name = "engineer training camera monitor"
+	network = list("Engineer Training Power Alarms","Engineer Training Atmos Alarms","Engineer Training Fire Alarms")
+	circuit = /obj/item/circuitboard/camera/engineering/enginner_training

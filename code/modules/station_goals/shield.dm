@@ -128,11 +128,14 @@
 	ruin_shield = new /datum/station_goal/station_shield/space_ruin
 	ruin_shield.z_level = src.z
 
-	parent_area_type = (get_area(loc)).type
-	if(parent_area_type in subtypesof(/area/ruin/space))
-		while(type2parent(parent_area_type) != /area/ruin/space)
+	parent_area_type = (get_area(src)).type
+
+	if(parent_area_type in subtypesof(/area/ruin))
+		// figure out which ruin we are on
+		while(type2parent(type2parent(parent_area_type)) != /area/ruin)
 			parent_area_type = type2parent(parent_area_type)
-		areas = typesof(parent_area_type)
+	else if(parent_area_type in subtypesof(/area/station))
+		parent_area_type = /area/station
 	else
 		parent_area_type = null
 
@@ -140,7 +143,6 @@
 		for(var/obj/machinery/satellite/S in GLOB.machines)
 			if((get_area(S)).type in areas)
 				ruin_shield.satellites += S
-
 
 /obj/machinery/computer/sat_control/space_ruin/ui_data(mob/user)
 	var/list/data = list()

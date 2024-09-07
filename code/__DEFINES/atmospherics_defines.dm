@@ -164,9 +164,3 @@
 #define ENVIRONMENT_TEMPERATE "temperate"
 /// Cold environment: Normal atmosphere, -93 C.
 #define ENVIRONMENT_COLD "cold"
-
-// Atmos Control
-/// Station air alarms control id
-#define STATION_ATMOS_CONTROL 0
-/// Engineering Training Facility air alarms control id
-#define ENG_TRN_ATMOS_CONTROL 1
