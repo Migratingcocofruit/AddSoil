@@ -68,4 +68,3 @@
 	. = ..()
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
-

@@ -359,6 +359,9 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	for(var/mob/living/L in view(7, src)) //Windows kinda make it a non threat, no matter how much I amp it up, so let us cheat a little
 		radiation_pulse(get_turf(L), 600, 2)
 
+/obj/machinery/gravity_generator/main/proc/same_area(turf/their_turf)
+	return their_turf?.z == (get_turf(src)).z
+
 /**
   * Shake everyone on the z level and play an alarm to let them know that gravity was enagaged/disenagaged.
   */
@@ -369,7 +372,7 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	for(var/shaken in GLOB.mob_list)
 		var/mob/M = shaken
 		var/turf/their_turf = get_turf(M)
-		if(their_turf?.z == our_turf.z)
+		if(same_area(their_turf))
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				shake_camera(M, 15, 1)
@@ -404,6 +407,71 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	transform = M
 	animate(src, transform = M * 40, time = 0.8 SECONDS, alpha = 128)
 	QDEL_IN(src, 0.8 SECONDS)
+
+/obj/machinery/gravity_generator/main/space_ruin
+	var/parent_area_type = null
+	var/areas = list()
+
+/obj/machinery/gravity_generator/main/space_ruin/Initialize(mapload)
+	. = ..()
+	parent_area_type = (get_area(loc)).type
+	if(parent_area_type in subtypesof(/area/ruin/space))
+		while(type2parent(parent_area_type) != /area/ruin/space)
+			parent_area_type = type2parent(parent_area_type)
+		areas = typesof(parent_area_type)
+	else
+		parent_area_type = null
+	update_gen_list()
+
+/obj/machinery/gravity_generator/main/space_ruin/proc/generators_in_area()
+	if(!parent_area_type)
+		return FALSE
+	if(GLOB.gravity_generators["[parent_area_type]"])
+		return length(GLOB.gravity_generators["[parent_area_type]"])
+	return FALSE
+
+/obj/machinery/gravity_generator/main/space_ruin/update_gen_list()
+	if(parent_area_type)
+		if(!GLOB.gravity_generators["[parent_area_type]"])
+			GLOB.gravity_generators["[parent_area_type]"] = list()
+		if(on)
+			GLOB.gravity_generators["[parent_area_type]"] |= src
+		else
+			GLOB.gravity_generators["[parent_area_type]"] -= src
+
+/obj/machinery/gravity_generator/main/space_ruin/set_gravity(gravity)
+	var/alert = FALSE // Sound the alert if gravity was just enabled or disabled.
+	var/area/src_area = get_area(src)
+	on = gravity
+	change_power_mode(on ? ACTIVE_POWER_USE : IDLE_POWER_USE)
+
+	if(gravity) // If we turned on
+		if(generators_in_area() == 0) // And there's no other gravity generators on this space ruin
+			alert = TRUE
+			investigate_log("was brought online and is now producing gravity for this ruin.", "gravity")
+			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[src_area.name]</a>)")
+			for(var/area/A in world)
+				if(A.type in areas)
+					A.gravitychange(TRUE, A)
+
+	else if(generators_in_area() == 1) // Turned off, and there is only one gravity generator on this space ruin
+		alert = TRUE
+		investigate_log("was brought offline and there is now no gravity for this ruin.", "gravity")
+		message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[src_area.name]</a>)")
+		for(var/area/A in world)
+			if(A.type in areas)
+				A.gravitychange(FALSE, A)
+
+	update_icon()
+	update_gen_list()
+	if(alert)
+		shake_everyone()
+
+/obj/machinery/gravity_generator/main/space_ruin/same_area(turf/their_turf)
+	return their_turf && ((get_area(their_turf)).type in typesof(parent_area_type))
+
+
+
 
 
 /obj/item/paper/gravity_gen

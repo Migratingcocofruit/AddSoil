@@ -205,6 +205,8 @@
 	density = TRUE
 	interact_offline = TRUE
 	luminosity = 1
+	/// Circuitboard type
+	var/circuitboard = /obj/item/circuitboard/machine/bluespace_tap
 	/// Does the BSH count for the goal
 	var/counts = TRUE
 
@@ -269,7 +271,7 @@
 		F.parent = src
 		fillers += F
 	component_parts = list()
-	component_parts += new /obj/item/circuitboard/machine/bluespace_tap(null)
+	component_parts += new circuitboard(null)
 	for(var/i = 1 to 5)	//five of each
 		component_parts += new /obj/item/stock_parts/capacitor/quadratic(null)
 		component_parts += new /obj/item/stack/ore/bluespace_crystal(null)
@@ -595,6 +597,7 @@
 
 /obj/machinery/power/bluespace_tap/safe
 	counts = FALSE
+	circuitboard = /obj/item/circuitboard/machine/bluespace_tap/safe
 
 /obj/structure/spawner/nether/bluespace_tap/safe
 	mob_types = list(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/dog/fox, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/penguin)

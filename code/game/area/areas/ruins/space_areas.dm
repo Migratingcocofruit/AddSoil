@@ -141,10 +141,11 @@
 	name = "Derelict EVA Storage"
 	icon_state = "eva"
 
-// Engineer training facility
+// Engineer Training Facility
 
 /area/ruin/space/engineer_training_facility
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	tele_proof = TRUE
 
 /area/ruin/space/engineer_training_facility/sleepers
 	name = "\improper Engineer Training Facility Sleepers"
