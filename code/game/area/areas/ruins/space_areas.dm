@@ -201,7 +201,7 @@
 	icon_state = "atmosctrl"
 
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine
-	name = "Engineer Training Facility Atmospherics Distribution Loop And Turbine"
+	name = "Engineer Training Facility Distribution Loop and Turbine"
 	icon_state = "turbine"
 
 /area/ruin/space/engineer_training_facility/secure_storage
@@ -229,6 +229,13 @@
 	name = "Engineer Training Facility Construction Area"
 	icon_state = "engi"
 
+/area/ruin/space/engineer_training_facility/medbay_construction
+	name = "Engineer Training Facility Medbay Construction"
+	icon_state = "engi"
+
+/area/ruin/space/engineer_training_facility/restrooms_construction
+	name = "Engineer Training Facility Restrooms Construction"
+	icon_state = "engi"
 
 /area/ruin/space/syndicate_druglab
 	name = "Suspicious Station"

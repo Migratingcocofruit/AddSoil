@@ -31,6 +31,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "afX" = (
@@ -264,10 +265,6 @@
 /obj/effect/spawner/window/reinforced,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
-"aGU" = (
-/obj/effect/spawner/window/reinforced,
-/turf/simulated/floor/plating,
-/area/ruin/space/engineer_training_facility/sleepers)
 "aHf" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/poddoor/preopen{
@@ -381,6 +378,12 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"aMg" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "aMM" = (
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
@@ -393,16 +396,15 @@
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "aNt" = (
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "aOj" = (
@@ -655,6 +657,10 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"ble" = (
+/obj/machinery/optable,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "blT" = (
 /obj/machinery/atmospherics/binary/volume_pump/on{
 	dir = 8;
@@ -662,6 +668,15 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"bmZ" = (
+/obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Construction Restrooms";
+	icon = 'icons/obj/doors/airlocks/station/public.dmi'
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "bpi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -905,7 +920,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering"
+	name = "Locker Room"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1080,10 +1095,6 @@
 /obj/structure/closet/radiation,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/gravitygenerator)
-"coz" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "cpz" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -1272,7 +1283,6 @@
 /obj/machinery/camera{
 	c_tag = "Engineering Equipment North"
 	},
-/obj/machinery/economy/vending/wallmed/directional/north,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "caution"
@@ -1636,6 +1646,9 @@
 "cMX" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cNB" = (
@@ -4194,12 +4207,6 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
-"dsI" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "dsN" = (
 /obj/structure/table,
 /obj/item/t_scanner,
@@ -4388,10 +4395,14 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
+"dSI" = (
+/obj/effect/spawner/window/reinforced,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "dZF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering";
+	name = "Locker Room";
 	req_access_txt = "302ddddddddddddddddddddddddddddddddddddddddddddddddddd"
 	},
 /obj/machinery/door/poddoor/preopen{
@@ -4551,7 +4562,7 @@
 "ejc" = (
 /obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering"
+	name = "Engine Monitoring"
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
@@ -4575,9 +4586,6 @@
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
 "emL" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/computer/monitor{
 	name = "Grid Power Monitoring Computer"
 	},
@@ -4789,6 +4797,9 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"fpV" = (
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "fqV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 6
@@ -4868,6 +4879,9 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
+"fTd" = (
+/turf/simulated/wall/r_wall,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "fWC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -5011,7 +5025,8 @@
 /area/ruin/space/engineer_training_facility/controlroom)
 "gLu" = (
 /obj/structure/table,
-/obj/machinery/chem_dispenser/soda/upgraded,
+/obj/machinery/chem_dispenser/soda/engineer_training,
+/obj/machinery/economy/vending/wallmed/directional/north,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "gLG" = (
@@ -5499,8 +5514,15 @@
 /area/ruin/space/engineer_training_facility/sleepers)
 "iWf" = (
 /obj/machinery/economy/vending/wallmed/directional/north,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
+"iXn" = (
+/obj/machinery/constructable_frame/machine_frame,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "jbt" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -5547,6 +5569,10 @@
 	},
 /turf/simulated/floor/engine/n20,
 /area/ruin/space/engineer_training_facility/atmos)
+"jka" = (
+/obj/item/defibrillator,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "jkn" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -5845,7 +5871,7 @@
 "kxY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering"
+	name = "Engine Monitoring"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5917,6 +5943,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "kLR" = (
@@ -6116,6 +6143,19 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
+"lBP" = (
+/obj/structure/rack{
+	dir = 8;
+	layer = 2.9;
+	name = "Essentials"
+	},
+/obj/item/mounted/frame/apc_frame,
+/obj/item/airalarm_electronics,
+/obj/item/apc_electronics,
+/obj/item/mounted/frame/alarm_frame,
+/obj/item/stock_parts/cell/high,
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/construction)
 "lId" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plasteel,
@@ -6129,18 +6169,6 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
-"lLn" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/wall/r_wall,
-/area/ruin/space/engineer_training_facility/sleepers)
 "lLC" = (
 /obj/effect/turf_decal/delivery/partial{
 	dir = 1
@@ -6264,10 +6292,6 @@
 /obj/structure/closet/crate/engineering/satelite,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/construction)
-"mDW" = (
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/pre_engine)
 "mHc" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -6292,7 +6316,9 @@
 /area/ruin/space/engineer_training_facility/fore_port_solar_control)
 "mLi" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering,
+/obj/machinery/door/airlock/engineering{
+	name = "Grav Gen SMES"
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -6445,7 +6471,7 @@
 /area/ruin/space/engineer_training_facility/gravitygenerator)
 "nsU" = (
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering"
+	name = "Construction"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
 /obj/machinery/door/firedoor,
@@ -6556,6 +6582,11 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
+"nUY" = (
+/obj/effect/spawner/window/reinforced,
+/obj/effect/spawner/window/reinforced,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "nVf" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 10
@@ -6578,7 +6609,7 @@
 "ojp" = (
 /obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
 /obj/machinery/door/airlock/engineering/glass{
-	name = "Engineering"
+	name = "Construction"
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -6765,6 +6796,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/atmos)
+"pfH" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "piF" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -6974,7 +7009,9 @@
 /area/ruin/space/engineer_training_facility/atmos)
 "qlp" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering/glass,
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Grav Gen"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/yellow{
@@ -7570,6 +7607,7 @@
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/metal/fifty,
 /obj/structure/table,
+/obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "tuD" = (
@@ -7767,6 +7805,12 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
+"uIz" = (
+/obj/structure/sink{
+	pixel_y = 12
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "uTu" = (
 /obj/structure/window/plasmareinforced{
 	dir = 8
@@ -7941,12 +7985,24 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
+"vvq" = (
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Construction MedBay";
+	icon = 'icons/obj/doors/airlocks/station/medical.dmi'
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "vwF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
+"vxn" = (
+/turf/simulated/wall/r_wall,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "vBs" = (
 /obj/machinery/firealarm/directional/east,
 /turf/simulated/floor/plasteel{
@@ -7968,6 +8024,12 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
+"vJq" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "vLf" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8010,6 +8072,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "vWC" = (
@@ -8149,6 +8212,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/controlroom)
+"wUt" = (
+/obj/item/mounted/mirror,
+/turf/simulated/wall/r_wall,
+/area/ruin/space/engineer_training_facility/restrooms_construction)
 "wWn" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8230,10 +8297,6 @@
 /obj/machinery/firealarm/directional/north,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
-"xoD" = (
-/obj/machinery/light,
-/turf/simulated/wall/r_wall,
-/area/ruin/space/engineer_training_facility/construction)
 "xrG" = (
 /obj/item/circuitboard/sm_monitor,
 /obj/structure/rack{
@@ -8299,10 +8362,6 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/equipmentstorage)
-"xCk" = (
-/obj/machinery/light,
-/turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "xJE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -8374,6 +8433,9 @@
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/controlroom)
+"ygd" = (
+/turf/simulated/floor/plating,
+/area/ruin/space/engineer_training_facility/medbay_construction)
 "ygu" = (
 /obj/machinery/camera{
 	c_tag = "Engineering Equipment West";
@@ -9881,11 +9943,11 @@ aab
 amh
 aab
 aaa
-aaa
+aab
 aaa
 csD
 aaa
-aaa
+aab
 aaa
 aaa
 aab
@@ -9943,11 +10005,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPI
 aaa
-aaa
+aab
 aaa
 aaa
 aab
@@ -10005,11 +10067,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aaa
 aaa
 aab
@@ -10067,11 +10129,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aab
 aaa
 aaa
@@ -10129,11 +10191,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aaa
 aaa
 aab
@@ -10191,11 +10253,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aaa
 aaa
 aaa
@@ -10253,11 +10315,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aaa
 aaa
 aaa
@@ -10315,11 +10377,11 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 aaa
 cPG
 aaa
-aaa
+aab
 aaa
 aaa
 aab
@@ -10377,7 +10439,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aab
 cVd
 ntD
 xSF
@@ -10428,18 +10490,18 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+fTd
+fTd
+fTd
+fTd
+fTd
+vxn
+vxn
+vxn
+vxn
+vxn
+vxn
+cVd
 cVd
 jCt
 cVd
@@ -10490,17 +10552,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wUt
+uIz
+fpV
+fpV
+aMg
+vxn
+pfH
+ygd
+vJq
+ygd
+iXn
 cVd
 cVd
 vmd
@@ -10552,17 +10614,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+fTd
+fpV
+fpV
+fpV
+fpV
+vxn
+ble
+ygd
+ygd
+ygd
+iXn
 cVd
 cSR
 gOm
@@ -10614,17 +10676,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wUt
+uIz
+fpV
+fpV
+aMg
+vxn
+ygd
+ygd
+ygd
+ygd
+ygd
 cVd
 cTa
 cUe
@@ -10676,17 +10738,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+fTd
+fpV
+fpV
+fpV
+fpV
+vxn
+jka
+ygd
+ygd
+ygd
+ygd
 cVd
 cST
 cUd
@@ -10738,17 +10800,17 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wUt
+uIz
+fpV
+fpV
+aMg
+vxn
+jka
+ygd
+ygd
+ygd
+iXn
 cVd
 cVd
 lQm
@@ -10800,17 +10862,17 @@ aaa
 hTA
 hTA
 hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
+fTd
+fTd
+bmZ
+fTd
+fTd
+vxn
+nUY
+dSI
+vvq
+nUY
+dSI
 hTA
 hTA
 cUh
@@ -10870,7 +10932,7 @@ ipz
 bka
 bka
 bka
-ipz
+bka
 bka
 bka
 bka
@@ -10998,11 +11060,11 @@ bka
 bka
 bka
 uVC
-bHY
+hTA
 cSv
 uVt
 uVt
-coz
+uVt
 dQo
 vWp
 dar
@@ -11064,7 +11126,7 @@ bHY
 bDc
 uVt
 uVt
-coz
+uVt
 cVk
 dtp
 dar
@@ -11123,10 +11185,10 @@ bka
 bka
 bka
 nsU
-dsI
 uVt
 uVt
-mDW
+uVt
+uVt
 dQo
 kzu
 dar
@@ -11370,7 +11432,7 @@ bka
 bka
 bka
 cJo
-xoD
+hTA
 iWf
 uVt
 cSp
@@ -11432,7 +11494,7 @@ bka
 bka
 bka
 tur
-bHY
+hTA
 uVt
 uVt
 uVt
@@ -11494,7 +11556,7 @@ bka
 bka
 uvf
 nVM
-bHY
+hTA
 uVt
 uVt
 uVt
@@ -11862,7 +11924,7 @@ xrG
 iJS
 cSO
 kDG
-cQN
+lBP
 mDi
 hTA
 cFZ
@@ -11920,8 +11982,8 @@ cHQ
 cHQ
 cHQ
 cHQ
-lLn
-aGU
+cHQ
+cHQ
 dkp
 dkp
 dkp
@@ -11983,8 +12045,8 @@ bWT
 cHQ
 cHQ
 ehs
-tTN
-xCk
+dcj
+cWy
 cHf
 tZo
 bGG
@@ -12169,7 +12231,7 @@ dcj
 dcj
 dcj
 cHX
-dcj
+tTN
 dkp
 gLu
 cRX
@@ -12231,9 +12293,9 @@ dcj
 dcj
 dcj
 cHX
-dcj
+tTN
 dkp
-rIv
+cRX
 cRX
 cRX
 aXG
@@ -12296,7 +12358,7 @@ cIg
 cIW
 cWy
 cRX
-cRX
+rIv
 cRX
 cRX
 cRX

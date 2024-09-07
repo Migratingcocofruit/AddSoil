@@ -80,3 +80,23 @@
 	name = "engineer training camera monitor"
 	network = list("Engineer Training Power Alarms","Engineer Training Atmos Alarms","Engineer Training Fire Alarms")
 	circuit = /obj/item/circuitboard/camera/engineering/enginner_training
+
+// Soda Fountain
+// For a truly authentic student experience
+/obj/item/circuitboard/chem_dispenser/soda/engineer_training
+	build_path = /obj/machinery/chem_dispenser/soda/engineer_training
+
+/obj/machinery/chem_dispenser/soda/engineer_training
+	dispensable_reagents = list("coffee", "hot_ramen")
+
+/obj/machinery/chem_dispenser/soda/engineer_training/Initialize(mapload)
+	. = ..()
+	QDEL_LIST_CONTENTS(component_parts)
+	component_parts += new /obj/item/circuitboard/chem_dispenser/soda/engineer_training(null)
+	component_parts += new /obj/item/stock_parts/matter_bin(null)
+	component_parts += new /obj/item/stock_parts/matter_bin(null)
+	component_parts += new /obj/item/stock_parts/manipulator(null)
+	component_parts += new /obj/item/stock_parts/capacitor(null)
+	component_parts += new /obj/item/stack/sheet/glass(null)
+	component_parts += new cell_type(null)
+	RefreshParts()
