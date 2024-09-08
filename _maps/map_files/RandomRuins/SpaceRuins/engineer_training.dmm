@@ -2165,6 +2165,18 @@
 /obj/item/stack/ore/bluespace_crystal/refined{
 	amount = 50
 	},
+/obj/item/stack/ore/iron{
+	amount = 500;
+	max_amount = 500
+	},
+/obj/item/stack/ore/plasma{
+	amount = 500;
+	max_amount = 500
+	},
+/obj/item/stack/ore/glass{
+	amount = 500;
+	max_amount = 500
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cSb" = (
@@ -5904,6 +5916,7 @@
 /obj/item/circuitboard/machine/bsa/back,
 /obj/item/circuitboard/machine/bsa/front,
 /obj/item/circuitboard/machine/bsa/middle,
+/obj/item/circuitboard/computer/bsa_control/safe,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/construction)
 "kER" = (

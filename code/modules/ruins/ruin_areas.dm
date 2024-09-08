@@ -1,6 +1,8 @@
+/// prototypes of ruin areas. Used to determine the highest area in the hirarchy in a given ruin
 GLOBAL_LIST_INIT(ruin_prototypes, list(/area/ruin,
 										/area/ruin/unpowered,
 										/area/ruin/powered,
+										/area/ruin/space
 										/area/ruin/space/powered,
 										/area/ruin/space/unpowered,
 										/area/ruin/space/unpowered/no_grav))
