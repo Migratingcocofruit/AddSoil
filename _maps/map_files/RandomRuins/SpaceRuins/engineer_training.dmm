@@ -5823,6 +5823,22 @@
 /obj/effect/spawner/window/reinforced/plasma,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/engine)
+"niW" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/engine,
+/area/ruin/space/engineer_training_facility/controlroom)
 "nlw" = (
 /obj/machinery/economy/vending/wallmed/directional/west,
 /turf/simulated/floor/plasteel,
@@ -11618,7 +11634,7 @@ hbq
 hbq
 rhs
 eJr
-ihW
+niW
 ihW
 cUl
 esG
