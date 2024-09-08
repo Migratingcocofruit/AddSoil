@@ -3996,13 +3996,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineer_trainee,
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
-"egO" = (
-/obj/machinery/atmospherics/meter,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
-/turf/simulated/wall/r_wall,
-/area/ruin/space/engineer_training_facility/engine)
 "ehp" = (
 /obj/machinery/camera{
 	c_tag = "Gravity Generator Room North";
@@ -11260,7 +11253,7 @@ cSx
 ihJ
 omz
 cVS
-egO
+omz
 iRc
 iRc
 iRc
