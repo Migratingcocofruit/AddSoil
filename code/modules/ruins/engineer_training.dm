@@ -34,18 +34,20 @@
 	death = FALSE
 	name = "Engineer Trainee sleeper"
 	mob_name = "Engineer Trainee"
-	description = "Experiment with power production and atmospherics"
+	description = "Experiment with power production and atmospherics, including an unexplodable Supermatter Crystal"
+	flavour_text = "You are an engineer trainee in the Engineer Training Facility. Experiment with construction, power prudction and atmospherics to better your understanding of all facets of engineering without any worries about destroying the station"
 	icon = 'icons/obj/cryogenic2.dmi'
 	icon_state = "sleeper"
-	flavour_text = "You are an engineer trainee"
 	assignedrole = "Engineer Trainee"
 	outfit = /datum/outfit/engineer_trainee
-
 	del_types = list() // Necessary to prevent del_types from removing radio!
-
 	allow_species_pick = TRUE
 	skin_tone = 255
 
+/obj/effect/mob_spawn/human/alive/engineer_trainee/Destroy()
+	var/obj/structure/fluff/empty_sleeper/S = new /obj/structure/fluff/empty_sleeper(get_turf(src))
+	S.setDir(dir)
+	. = ..()
 
 // Modsuits
 
@@ -68,18 +70,6 @@
 	. = ..()
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
-
-// Camera Console
-/obj/item/circuitboard/camera/engineering/enginner_training
-	build_path = /obj/machinery/computer/security/engineering/engineer_training
-
-/obj/item/circuitboard/camera/engineering/enginner_training/screwdriver_act(mob/living/user, obj/item/I)
-	return
-
-/obj/machinery/computer/security/engineering/engineer_training
-	name = "engineer training camera monitor"
-	network = list("Engineer Training Power Alarms","Engineer Training Atmos Alarms","Engineer Training Fire Alarms")
-	circuit = /obj/item/circuitboard/camera/engineering/enginner_training
 
 // Soda Fountain
 // For a truly authentic student experience

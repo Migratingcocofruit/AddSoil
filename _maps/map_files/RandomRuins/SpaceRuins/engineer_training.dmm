@@ -883,7 +883,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/computer/security/engineering/engineer_training,
+/obj/machinery/computer/security/engineering,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "bMi" = (
@@ -7297,13 +7297,6 @@
 	icon_state = "arrival"
 	},
 /area/ruin/space/engineer_training_facility/atmos)
-"rIv" = (
-/obj/structure/sink{
-	pixel_x = 1;
-	pixel_y = 10
-	},
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/equipmentstorage)
 "rMn" = (
 /obj/structure/closet/crate/engineering/satelite,
 /turf/simulated/floor/plasteel,
@@ -12358,7 +12351,7 @@ cIg
 cIW
 cWy
 cRX
-rIv
+cRX
 cRX
 cRX
 cRX
