@@ -336,6 +336,64 @@ GLOBAL_LIST_EMPTY(field_generator_fields)
 	if(length(fields))
 		..()
 
+/datum/coords
+	var/min_x = 0
+	var/max_x = 0
+	var/min_y = 0
+	var/max_y = 0
+
+/obj/machinery/field/generator/safe
+	var/datum/coords/extreme_coords
+
+/obj/machinery/field/generator/safe/Initialize(mapload)
+	. = ..()
+	extreme_coords = new /datum/coords
+	extreme_coords.min_x = x
+	extreme_coords.max_x = x
+	extreme_coords.min_y = y
+	extreme_coords.max_y = y
+
+/obj/machinery/field/generator/safe/wrench_act(mob/living/user, obj/item/W)
+	. = ..()
+	if(anchored)
+		extreme_coords.min_x = x
+		extreme_coords.max_x = x
+		extreme_coords.min_y = y
+		extreme_coords.max_y = y
+
+/obj/machinery/field/generator/safe/proc/set_coords(var/datum/coords/master_coords)
+	for(var/obj/machinery/field/generator/safe/Next in connected_gens)
+		if(Next.extreme_coords.UID() != master_coords.UID())
+			master_coords.max_x = max(master_coords.max_x, Next.extreme_coords.max_x)
+			master_coords.min_x = min(master_coords.min_x, Next.extreme_coords.min_x)
+			master_coords.max_y = max(master_coords.max_y, Next.extreme_coords.max_y)
+			master_coords.min_y = min(master_coords.min_y, Next.extreme_coords.min_y)
+			qdel(Next.extreme_coords)
+			Next.extreme_coords = extreme_coords
+			Next.set_coords(master_coords)
+
+
+/obj/machinery/field/generator/safe/setup_field(NSEW)
+	. = ..()
+	set_coords(extreme_coords)
+
+/obj/machinery/field/generator/safe/cleanup()
+	clean_up = TRUE
+	for(var/obj/singularity/singu in GLOB.singularities)
+		if(singu.x <= extreme_coords.max_x && singu.x >= extreme_coords.min_x && singu.y <= extreme_coords.max_y && singu.y >= extreme_coords.min_y)
+			qdel(singu)
+	for(var/F in fields)
+		qdel(F)
+		GLOB.field_generator_fields -= F
+	for(var/CG in connected_gens)
+		var/obj/machinery/field/generator/FG = CG
+		FG.connected_gens -= src
+		if(!FG.clean_up)//Makes the other gens clean up as well
+			FG.cleanup()
+		connected_gens -= FG
+	clean_up = FALSE
+	update_icon()
+
 #undef FG_UNSECURED
 #undef FG_SECURED
 #undef FG_WELDED
