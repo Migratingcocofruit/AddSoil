@@ -89,18 +89,22 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "alk" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8";
+	color = "#ffcc00"
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
 	color = "#ffcc00"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/machinery/power/compressor{
-	comp_id = "incineratorturbine";
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
@@ -127,6 +131,9 @@
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "aow" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera{
+	c_tag = "Atmospherics North-East"
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "arp" = (
@@ -219,6 +226,9 @@
 	pixel_x = -10;
 	req_access_txt = "302"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "ayq" = (
@@ -277,7 +287,7 @@
 /area/ruin/space/engineer_training_facility/engine)
 "aJk" = (
 /obj/machinery/computer/turbine_computer{
-	id = "incineratorturbine";
+	id = "trn_turbine";
 	dir = 8
 	},
 /obj/structure/cable{
@@ -368,6 +378,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
+/obj/machinery/igniter{
+	id = "gasturbine"
+	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "aMg" = (
@@ -381,6 +394,16 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/smes)
+"aMW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/atmos)
 "aNp" = (
 /obj/machinery/mineral/stacking_unit_console,
 /obj/structure/table,
@@ -426,11 +449,8 @@
 	},
 /area/ruin/space/engineer_training_facility/atmos)
 "aTE" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
@@ -593,9 +613,6 @@
 	icon_state = "4-8";
 	color = "#ffcc00"
 	},
-/obj/machinery/igniter{
-	id = "gasturbine"
-	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "bib" = (
@@ -605,10 +622,6 @@
 /obj/machinery/atmospherics/portable/canister/toxins,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
-"bji" = (
-/obj/item/beacon,
-/turf/simulated/floor/plasteel,
-/area/ruin/space/engineer_training_facility/atmos)
 "bka" = (
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
@@ -870,9 +883,10 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/sleepers)
 "bLG" = (
-/obj/machinery/atmospherics/binary/pump{
+/obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
 	},
+/obj/machinery/light/small/built,
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "bLU" = (
@@ -983,9 +997,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "bWm" = (
-/obj/machinery/camera{
-	c_tag = "Atmospherics North-East"
-	},
 /obj/machinery/atmospherics/binary/volume_pump/on{
 	dir = 8;
 	name = "Distro to Waste";
@@ -1011,9 +1022,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/sleepers)
 "bYM" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/atmospherics/meter{
 	autolink_id = "wloop_atm_meter";
 	name = "Waste Loop"
@@ -1728,6 +1736,7 @@
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cOy" = (
 /obj/machinery/autolathe/syndicate,
+/obj/machinery/autolathe/syndicate,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cPk" = (
@@ -1899,7 +1908,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/atmos_personal,
+/obj/structure/closet/secure_closet/atmos_personal/trainee,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
 "cQM" = (
@@ -2465,13 +2474,13 @@
 /obj/machinery/power/turbine{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8";
 	color = "#ffcc00"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/floor/engine,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
@@ -2851,9 +2860,6 @@
 /turf/space,
 /area/space/nearstation)
 "cZv" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/machinery/access_button{
 	layer = 3.1;
 	autolink_id = "training_turbine_btn_ext";
@@ -2861,6 +2867,9 @@
 	pixel_x = -9;
 	pixel_y = -8;
 	req_access_txt = "302"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
@@ -3656,7 +3665,7 @@
 	c_tag = "Atmospherics North-West";
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/atmos_personal,
+/obj/structure/closet/secure_closet/atmos_personal/trainee,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
 "dtc" = (
@@ -4101,15 +4110,6 @@
 	},
 /turf/simulated/floor/engine/air,
 /area/ruin/space/engineer_training_facility/atmos)
-"ewu" = (
-/obj/machinery/access_button{
-	autolink_id = "train_eng_btn_int";
-	req_access_txt = "302";
-	pixel_y = -9;
-	pixel_x = 11
-	},
-/turf/simulated/wall/r_wall,
-/area/ruin/space/engineer_training_facility/secure_storage)
 "ewA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -6144,6 +6144,15 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
+"pen" = (
+/obj/machinery/access_button{
+	autolink_id = "train_eng_btn_int";
+	req_access_txt = "302";
+	pixel_y = -9;
+	pixel_x = -21
+	},
+/turf/simulated/floor/plasteel,
+/area/ruin/space/engineer_training_facility/pre_engine)
 "pfH" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/plating,
@@ -6204,7 +6213,7 @@
 	name = "Turbine Access Console";
 	pixel_x = -9;
 	pixel_y = 6;
-	req_access_txt = "12";
+	req_access_txt = "302";
 	ext_door_link_id = "training_turbine_door_ext";
 	int_door_link_id = "training_turbine_door_int";
 	ext_button_link_id = "training_turbine_btn_ext";
@@ -6221,6 +6230,9 @@
 	pixel_x = 9;
 	pixel_y = -8;
 	req_access_txt = "302"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /turf/simulated/wall/r_wall,
 /area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
@@ -7003,7 +7015,7 @@
 	},
 /area/ruin/space/engineer_training_facility/atmos)
 "tJR" = (
-/obj/structure/closet/secure_closet/atmos_personal,
+/obj/structure/closet/secure_closet/atmos_personal/trainee,
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
 "tLj" = (
@@ -7405,6 +7417,9 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 5
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/atmos)
 "vFA" = (
@@ -7438,10 +7453,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/gravitygenerator)
 "vLG" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 8;
-	name = "O2 to Pure"
-	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
 	name = "Air to Ports"
@@ -7502,6 +7513,12 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
+"vYy" = (
+/obj/machinery/atmospherics/unary/vent_pump/siphon/on{
+	dir = 8
+	},
+/turf/simulated/floor/engine,
+/area/ruin/space/engineer_training_facility/atmos/distribution_turbine)
 "wdL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 1
@@ -7642,10 +7659,6 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/pre_engine)
 "wXI" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 4;
-	name = "Waste to Port"
-	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Waste to Port"
@@ -10355,8 +10368,8 @@ kJJ
 dar
 ddG
 cPk
-cPk
 cQj
+cQJ
 cQJ
 dar
 aaa
@@ -10604,7 +10617,7 @@ dar
 dar
 cYC
 cZL
-ewu
+dar
 dar
 dar
 rgM
@@ -10666,7 +10679,7 @@ pxP
 cXS
 cYv
 uVt
-uVt
+pen
 rhU
 dcl
 cNB
@@ -12142,7 +12155,7 @@ cLw
 cGK
 aPd
 cSd
-bji
+cSd
 cPQ
 iHi
 lCD
@@ -12163,7 +12176,7 @@ lCD
 nNz
 fNw
 fNw
-gwO
+aMW
 gwO
 gwO
 fBW
@@ -12443,7 +12456,7 @@ aaa
 aaa
 aaa
 dgS
-nqN
+hEs
 nlw
 gUp
 bib
@@ -13251,7 +13264,7 @@ aaa
 aaa
 aab
 dgS
-bRT
+vYy
 dgS
 aab
 aaa

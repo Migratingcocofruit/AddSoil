@@ -71,6 +71,31 @@
 	freqlock = TRUE
 	set_frequency(ENG_TRNE_FREQ)
 
+// lockers
+
+/obj/structure/closet/secure_closet/atmos_personal/trainee
+
+/obj/structure/closet/secure_closet/atmos_personal/trainee/populate_contents()
+	new /obj/item/cartridge/atmos(src)
+	new /obj/item/storage/toolbox/mechanical(src)
+	if(prob(50))
+		new /obj/item/storage/backpack/industrial/atmos(src)
+	else
+		new /obj/item/storage/backpack/satchel_atmos(src)
+	new /obj/item/storage/backpack/duffel/atmos(src)
+	new /obj/item/extinguisher(src)
+	new /obj/item/grenade/gas/oxygen(src)
+	new /obj/item/grenade/gas/oxygen(src)
+	new /obj/item/clothing/suit/storage/hazardvest/staff(src)
+	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/tank/internals/emergency_oxygen/engi(src)
+	new /obj/item/holosign_creator/atmos(src)
+	new /obj/item/watertank/atmos(src)
+	new /obj/item/clothing/suit/fire/atmos(src)
+	new /obj/item/clothing/head/hardhat/atmos(src)
+	new /obj/item/clothing/glasses/meson/engine(src)
+	new /obj/item/rpd(src)
+
 // Soda Fountain
 // For a truly authentic student experience
 /obj/item/circuitboard/chem_dispenser/soda/engineer_training
