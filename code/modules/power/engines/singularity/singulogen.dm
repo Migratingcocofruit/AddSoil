@@ -42,7 +42,7 @@
 			if(G)
 				if(istype(G, /obj/machinery/field/generator/safe))
 					var/obj/machinery/field/generator/safe/GS = G
-					return (x <= GS.extreme_coords.max_x && x >= GS.extreme_coords.min_x && y <= GS.extreme_coords.min_y && y >= GS.extreme_coords.max_y)
+					return (x <= GS.extreme_coords.max_x && x >= GS.extreme_coords.min_x && y <= GS.extreme_coords.max_y && y >= GS.extreme_coords.min_y)
 				else
 					return FALSE
 
