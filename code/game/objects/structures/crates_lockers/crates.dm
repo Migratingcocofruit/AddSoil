@@ -712,15 +712,35 @@
 	new /obj/machinery/power/rad_collector(src)
 	new /obj/machinery/power/rad_collector(src)
 
-/obj/structure/closet/crate/engineering/field_generator
-	name = "Engineering Trainee Field Generator Crate"
+/obj/structure/closet/crate/engineering/safe_tesla_kit
+	name = "Engineering Trainee Tesla engine kit"
 	desc= "A crate containing 4 field generators"
 
-/obj/structure/closet/crate/engineering/field_generator/populate_contents()
-	new /obj/machinery/field/generator(src)
-	new /obj/machinery/field/generator(src)
-	new /obj/machinery/field/generator(src)
-	new /obj/machinery/field/generator(src)
+/obj/structure/closet/crate/engineering/safe_tesla_kit/populate_contents()
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/the_singularitygen/safe(src)
+
+/obj/structure/closet/crate/engineering/safe_singulo_kit
+	name = "Engineering Trainee Singularity engine kit"
+	desc= "A crate containing 4 field generators"
+
+/obj/structure/closet/crate/engineering/safe_singulo_kit/populate_contents()
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/field/generator/safe(src)
+	new /obj/machinery/the_singularitygen/tesla/safe(src)
 
 /obj/structure/closet/crate/engineering/emitter
 	name = "Engineering Trainee Emitter Crate"

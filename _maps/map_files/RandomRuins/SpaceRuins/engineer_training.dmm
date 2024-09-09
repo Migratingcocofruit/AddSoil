@@ -1920,7 +1920,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/closet/crate/engineering/field_generator,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/secure_storage)
 "cQL" = (
@@ -3493,7 +3492,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/crate/engineering/field_generator,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/secure_storage)
 "dja" = (
