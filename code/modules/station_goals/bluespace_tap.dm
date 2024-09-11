@@ -258,10 +258,10 @@
 /obj/machinery/power/bluespace_tap/Initialize(mapload)
 	. = ..()
 	component_parts = list()
-	component_parts += new circuitboard(null)
+	component_parts += new circuitboard()
 	for(var/i = 1 to 5)	//five of each
-		component_parts += new /obj/item/stock_parts/capacitor/quadratic(null)
-		component_parts += new /obj/item/stack/ore/bluespace_crystal(null)
+		component_parts += new /obj/item/stock_parts/capacitor/quadratic()
+		component_parts += new /obj/item/stack/ore/bluespace_crystal()
 	if(!powernet)
 		connect_to_network()
 
