@@ -54564,6 +54564,12 @@
 	icon_state = "white"
 	},
 /area/station/science/hallway)
+"fbW" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/turf/space,
+/area/space)
 "fcd" = (
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/decal/cleanable/dirt,
@@ -58942,6 +58948,10 @@
 /obj/structure/rack,
 /turf/simulated/floor/plating,
 /area/station/maintenance/asmaint)
+"hbH" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
+/turf/space,
+/area/space)
 "hcb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -62050,6 +62060,12 @@
 /obj/structure/chair/comfy/corp,
 /turf/simulated/floor/carpet/black,
 /area/station/command/meeting_room)
+"iKe" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 9
+	},
+/turf/space,
+/area/space/nearstation)
 "iKr" = (
 /obj/structure/table,
 /obj/item/trash/chips,
@@ -70653,6 +70669,12 @@
 /mob/living/simple_animal/pet/cat/Var,
 /turf/simulated/floor/wood,
 /area/station/maintenance/apmaint)
+"mTf" = (
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 4
+	},
+/turf/space,
+/area/space/nearstation)
 "mTj" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -119513,8 +119535,8 @@ aab
 afX
 dmD
 afX
-aaa
-aaa
+ejb
+hbH
 amo
 amo
 amo
@@ -119770,7 +119792,7 @@ aaa
 afX
 dmD
 afX
-aaa
+fbW
 aaa
 aaa
 mbF
@@ -120027,7 +120049,7 @@ aab
 afX
 dmD
 afX
-aaa
+fbW
 afX
 afX
 aaa
@@ -120284,7 +120306,7 @@ aaa
 afX
 dmD
 afX
-aab
+mTf
 dmD
 afX
 afX
@@ -120541,7 +120563,7 @@ aab
 afX
 afX
 afX
-aab
+mTf
 dmD
 dmD
 afX
@@ -120794,11 +120816,11 @@ cSU
 rCe
 rCe
 cSU
-aaa
-aaa
-aaa
-aaa
-aab
+ejb
+hbH
+hbH
+hbH
+iKe
 aab
 aab
 aaa
