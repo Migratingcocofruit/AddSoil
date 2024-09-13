@@ -141,75 +141,71 @@
 	name = "Derelict EVA Storage"
 	icon_state = "eva"
 
-// Engineer Training Facility
+// Alien Cache Site
 
-/area/ruin/space/engineer_training_facility
-	name = "Engineer Training Facility"
+/area/ruin/space/alien_cache_site
+	name = "Alien Cache Site"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	tele_proof = TRUE
-	fire_cam_network = "Engineer Training Fire Alarms"
-	power_cam_network = "Engineer Training Power Alarms"
-	atmos_cam_network = "Engineer Training Atmos Alarms"
+	fire_cam_network = "Alien Cache Fire Alarms"
+	power_cam_network = "Alien Cache Power Alarms"
+	atmos_cam_network = "Alien Cache Atmos Alarms"
 
-/area/ruin/space/engineer_training_facility/sleepers
-	name = "\improper Engineer Training Facility Sleepers"
+/area/ruin/space/alien_cache_site/sleepers
+	name = "\improper Alien Cache Site Sleepers"
 	icon_state = "engi"
 
-/area/ruin/space/engineer_training_facility/smes
-	name = "\improper Engineer Training Facility SMES"
+/area/ruin/space/alien_cache_site/smes
+	name = "\improper Alien Cache Site SMES"
 	icon_state = "engine_smes"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 
-/area/ruin/space/engineer_training_facility/control
-	name = "Engineer Training Facility Engine Control"
+/area/ruin/space/alien_cache_site/control
+	name = "Alien Cache Site Engine Control"
 	icon_state = "engine_control"
 
-/area/space/engineer_training_facility/sleepers
-	name = "\improper Engineer Training Facility Sleepers"
+/area/space/alien_cache_site/sleepers
+	name = "\improper Alien Cache Site Sleepers"
 	icon_state = "engibreak"
 
-/area/ruin/space/engineer_training_facility/gear
-	name = "\improper Engineer Training Facility Secondary Storage"
+/area/ruin/space/alien_cache_site/gear
+	name = "\improper Alien Cache Site Secondary Storage"
 
-/area/ruin/space/engineer_training_facility/equipmentstorage
-	name = "Engineer Training Facility Equipment Storage"
+/area/ruin/space/alien_cache_site/equipmentstorage
+	name = "Alien Cache Site Equipment Storage"
 	icon_state = "engilocker"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/ruin/space/engineer_training_facility/pre_engine
-	name = "\improper Engineer Training Facility Monitoring area"
+/area/ruin/space/alien_cache_site/pre_engine
+	name = "\improper Alien Cache Site Monitoring area"
 	icon_state = "engine_monitoring"
 
-/area/ruin/space/engineer_training_facility/controlroom
-	name = "\improper Engineer Training Facility Engine Control Room"
+/area/ruin/space/alien_cache_site/controlroom
+	name = "\improper Alien Cache Site Engine Control Room"
 	icon_state = "engine_control"
 
-/area/ruin/space/engineer_training_facility/gravitygenerator
-	name = "\improper Engineer Training Facility Gravity Generator"
+/area/ruin/space/alien_cache_site/gravitygenerator
+	name = "\improper Alien Cache Site Gravity Generator"
 	icon_state = "gravgen"
 
-/area/ruin/space/engineer_training_facility/engine
-	name = "\improper Engineer Training Facility Engine"
+/area/ruin/space/alien_cache_site/engine
+	name = "\improper Alien Cache Site Engine"
 	icon_state = "engine"
 
-/area/ruin/space/engineer_training_facility/atmos
-	name = "Engineer Training Facility Atmospherics"
+/area/ruin/space/alien_cache_site/atmos
+	name = "Alien Cache Site Atmospherics"
 	icon_state = "atmos"
 
-/area/ruin/space/engineer_training_facility/atmos/control
-	name = "Engineer Training Facility Atmospherics Control Room"
-	icon_state = "atmosctrl"
-
-/area/ruin/space/engineer_training_facility/atmos/distribution_turbine
-	name = "Engineer Training Facility Distribution Loop and Turbine"
+/area/ruin/space/alien_cache_site/atmos/distribution_turbine
+	name = "Alien Cache Site Distribution Loop and Turbine"
 	icon_state = "turbine"
 
-/area/ruin/space/engineer_training_facility/secure_storage
-	name = "Engineer Training Facility Secure Storage"
+/area/ruin/space/alien_cache_site/secure_storage
+	name = "Alien Cache Site Secure Storage"
 	icon_state = "engine_storage"
 
-/area/ruin/space/engineer_training_facility/solar
-	name = "\improper Engineer Training Facility Solar Array"
+/area/ruin/space/alien_cache_site/solar
+	name = "\improper Alien Cache Site Solar Array"
 	icon_state = "general_solars"
 	requires_power = FALSE
 	valid_territory = FALSE
@@ -217,25 +213,25 @@
 	ambientsounds = ENGINEERING_SOUNDS
 	sound_environment = SOUND_AREA_SPACE
 
-/area/ruin/space/engineer_training_facility/solar/fore_port
-	name = "\improper Engineer Training Facility Fore-Port Solar Array"
+/area/ruin/space/alien_cache_site/solar/fore_port
+	name = "\improper Alien Cache Site Fore-Port Solar Array"
 	icon_state = "fore_port_solars"
 
-/area/ruin/space/engineer_training_facility/fore_port_solar_control
-	name = "\improper Engineer Training Facility Solar Array"
+/area/ruin/space/alien_cache_site/fore_port_solar_control
+	name = "\improper Alien Cache Site Solar Array"
 	icon_state = "fore_port_solar_control"
 
-/area/ruin/space/engineer_training_facility/construction
-	name = "Engineer Training Facility Construction Area"
+/area/ruin/space/alien_cache_site/alien_cache
+	name = "Alien Cache Site Construction Area"
 	icon_state = "engi"
 
-/area/ruin/space/engineer_training_facility/medbay_construction
-	name = "Engineer Training Facility Medbay Construction"
-	icon_state = "engi"
+/area/ruin/space/alien_cache_site/medbay
+	name = "Alien Cache Site Medbay"
+	icon_state = "medbay"
 
-/area/ruin/space/engineer_training_facility/restrooms_construction
-	name = "Engineer Training Facility Restrooms Construction"
-	icon_state = "engi"
+/area/ruin/space/alien_cache_site/dorms
+	name = "Alien Cache Site Dorms"
+	icon_state = "dorms"
 
 /area/ruin/space/syndicate_druglab
 	name = "Suspicious Station"
