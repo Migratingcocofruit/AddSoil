@@ -229,12 +229,11 @@
 	icon_state = "freezer_1"
 
 /obj/machinery/atmospherics/unary/thermomachine/freezer/on/tier4
-	target_temperature = 3
+
 
 
 /obj/machinery/atmospherics/unary/thermomachine/freezer/on/tier4/Initialize(mapload)
 	. = ..()
-	initialize_directions = dir
 	component_parts = list()
 	component_parts += new /obj/item/circuitboard/thermomachine(null)
 	component_parts += new /obj/item/stock_parts/matter_bin/bluespace(src)
@@ -245,6 +244,7 @@
 	component_parts += new /obj/item/stack/cable_coil(src, 1)
 	RefreshParts()
 	update_icon()
+	target_temperature = 3
 
 
 /obj/machinery/atmospherics/unary/thermomachine/freezer/on/New()
