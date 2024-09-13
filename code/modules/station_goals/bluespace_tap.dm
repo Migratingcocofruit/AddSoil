@@ -51,10 +51,6 @@
 							/obj/item/stock_parts/capacitor/quadratic = 5,//Probably okay, right?
 							/obj/item/stack/ore/bluespace_crystal = 5)
 
-/obj/item/circuitboard/machine/bluespace_tap/safe
-	build_path = /obj/machinery/power/bluespace_tap/safe
-	board_name = "Safe Bluespace Harvester"
-
 /obj/effect/spawner/lootdrop/bluespace_tap
 	name = "bluespace harvester reward spawner"
 	lootcount = 1
@@ -427,11 +423,7 @@
 
 /obj/machinery/power/bluespace_tap/proc/start_nether_portaling(amount)
 	var/turf/location = locate(x + rand(-5, 5), y + rand(-5, 5), z)
-	var/obj/structure/spawner/nether/bluespace_tap/P
-	if(istype(src, /obj/machinery/power/bluespace_tap/safe))
-		P = new /obj/structure/spawner/nether/bluespace_tap/safe(location)
-	else
-		P = new /obj/structure/spawner/nether/bluespace_tap(location)
+	var/obj/structure/spawner/nether/bluespace_tap/P = new(location)
 	amount--
 	active_nether_portals += P
 	P.linked_source_object = src

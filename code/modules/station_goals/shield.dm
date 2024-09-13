@@ -39,10 +39,6 @@
 	build_path = /obj/machinery/computer/sat_control
 	origin_tech = "engineering=3"
 
-/obj/item/circuitboard/computer/sat_control/space_ruin
-	board_name = "Ruin Satellite Network Control"
-	build_path = /obj/machinery/computer/sat_control/space_ruin
-
 /obj/machinery/computer/sat_control
 	name = "Satellite control"
 	desc = "Used to control the satellite network."
@@ -96,75 +92,6 @@
 
 /obj/machinery/computer/sat_control/proc/toggle(id)
 	for(var/obj/machinery/satellite/S in GLOB.machines)
-		if(S.id == id && atoms_share_level(src, S))
-			if(!S.toggle())
-				notice = "You can only activate satellites which are in space"
-			else
-				notice = null
-
-/datum/station_goal/station_shield/space_ruin
-	var/list/satellites = list()
-	var/z_level = null
-
-/datum/station_goal/station_shield/space_ruin/get_coverage()
-	if(!z_level)
-		return
-	var/list/coverage = list()
-	for(var/obj/machinery/satellite/meteor_shield/A in satellites)
-		if(!A.active || A.z != z_level)
-			continue
-		coverage |= view(A.kill_range, A)
-	return length(coverage)
-
-/obj/machinery/computer/sat_control/space_ruin
-	name = "Space Ruin Satellite control"
-	desc = "Used to control a satellite network in space ruins"
-	var/datum/station_goal/station_shield/space_ruin/ruin_shield = null
-	var/parent_area_type = null
-	var/list/areas = list()
-
-/obj/machinery/computer/sat_control/space_ruin/Initialize()
-	. = ..()
-	ruin_shield = new /datum/station_goal/station_shield/space_ruin
-	ruin_shield.z_level = src.z
-
-	parent_area_type = (get_area(src)).type
-
-	if(parent_area_type in subtypesof(/area/ruin))
-		// figure out which ruin we are on
-		while(type2parent(type2parent(parent_area_type)) != /area/ruin)
-			parent_area_type = type2parent(parent_area_type)
-	else if(parent_area_type in subtypesof(/area/station))
-		parent_area_type = /area/station
-	else
-		parent_area_type = null
-
-	if(parent_area_type)
-		for(var/obj/machinery/satellite/S in GLOB.machines)
-			if((get_area(S)).type in areas)
-				ruin_shield.satellites += S
-
-/obj/machinery/computer/sat_control/space_ruin/ui_data(mob/user)
-	var/list/data = list()
-
-	data["satellites"] = list()
-	for(var/obj/machinery/satellite/S in ruin_shield.satellites)
-		data["satellites"] += list(list(
-			"id" = S.id,
-			"active" = S.active,
-			"mode" = S.mode
-		))
-	data["notice"] = notice
-
-	if(ruin_shield)
-		data["meteor_shield"] = 1
-		data["meteor_shield_coverage"] = ruin_shield.get_coverage()
-		data["meteor_shield_coverage_max"] = ruin_shield.coverage_goal
-		data["meteor_shield_coverage_percentage"] = (ruin_shield.get_coverage() / ruin_shield.coverage_goal) * 100
-	return data
-
-/obj/machinery/computer/sat_control/space_ruin/toggle(id)
-	for(var/obj/machinery/satellite/S in ruin_shield.satellites)
 		if(S.id == id && atoms_share_level(src, S))
 			if(!S.toggle())
 				notice = "You can only activate satellites which are in space"
