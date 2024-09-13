@@ -7,11 +7,11 @@
 	access = list(ACCESS_ENGINEER_TRAINEE, ACCESS_CE, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	untrackable = TRUE
 
-//outfit
+// Outfit
 
 /datum/outfit/engineer_trainee
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
-	back = /obj/item/mod/control/pre_equipped/advanced/trainee
+	back = /obj/item/mod/control/pre_equipped/engineer/trainee
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	belt = /obj/item/storage/belt/utility/chief/full
 	gloves = /obj/item/clothing/gloves/color/yellow
@@ -101,7 +101,6 @@
 	new /obj/item/rpd(src)
 
 // Soda Fountain
-// For a truly authentic student experience
 /obj/item/circuitboard/chem_dispenser/soda/engineer_training
 	build_path = /obj/machinery/chem_dispenser/soda/engineer_training
 
@@ -119,3 +118,28 @@
 	component_parts += new /obj/item/stack/sheet/glass(null)
 	component_parts += new cell_type(null)
 	RefreshParts()
+
+// Alien Cache
+
+/obj/machinery/power/alien_cache
+	. = ..()
+	if(!powernet)
+		connect_to_network()
+
+	AddComponent(/datum/component/multitile, 1, list(
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1, MACH_CENTER, 1, 1, 1, 1),
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+		list(1, 1, 1, 1,		   1, 1, 1, 1)
+
+	))
+
+/obj/machinery/power/bluespace_tap/connect_to_network()
+	. = ..()
+	if(.)
+		update_icon()
