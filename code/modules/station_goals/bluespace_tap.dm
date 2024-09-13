@@ -199,10 +199,6 @@
 	density = TRUE
 	interact_offline = TRUE
 	luminosity = 1
-	/// Circuitboard type
-	var/circuitboard = /obj/item/circuitboard/machine/bluespace_tap
-	/// Does the BSH count for the goal
-	var/counts = TRUE
 
 	/// Correspond to power required for a mining level, first entry for level 1, etc.
 	var/list/power_needs = list(1 KW, 2 KW, 5 KW, 10 KW, 15 KW,

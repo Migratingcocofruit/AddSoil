@@ -122,21 +122,34 @@
 // Alien Cache
 
 /obj/machinery/power/alien_cache
+	name = "Alien Technology Cache"
+	icon = 'icons/obj/machines/alien_cache.dmi'
+	icon_state = "alien_cache"
+	base_icon_state = "alien_cache"
+	power_state = NO_POWER_USE
+	density = TRUE
+	interact_offline = TRUE
+	luminosity = 1
+
+/obj/machinery/power/alien_cache/Initialize(mapload)
 	. = ..()
 	if(!powernet)
 		connect_to_network()
 
 	AddComponent(/datum/component/multitile, 1, list(
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1, MACH_CENTER, 1, 1, 1, 1),
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-		list(1, 1, 1, 1,		   1, 1, 1, 1)
-
+		list(1, 1, 1, 1, 1, 1,1,		   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,1,		   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, MACH_CENTER, 1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
 	))
 
 /obj/machinery/power/bluespace_tap/connect_to_network()
