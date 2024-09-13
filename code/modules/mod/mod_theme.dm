@@ -165,6 +165,16 @@
 /obj/item/mod/armor/mod_theme_engineering
 	armor = list(MELEE = 20, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 30, RAD = 150, FIRE = INFINITY, ACID = 150) //Bomb armor bumped up a bit, as the modsuit describes it with blast-dampening
 
+/datum/mod_theme/engineering/trainee
+	name = "shielded engineering"
+	desc = "An engineering suit with increased radiation protection"
+	extended_desc = "A variant of the tried and true engineering modsuit with radiation protection \
+	equivalent to that of the advanced suit. It is otherwise identical to the standard model."
+	flag_2_flags = RAD_PROTECT_CONTENTS_2
+
+/obj/item/mod/armor/mod_theme_engineering/trainee
+	armor = list(MELEE = 20, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 30, RAD = INFINITY, FIRE = INFINITY, ACID = 150)
+
 /datum/mod_theme/atmospheric
 	name = "atmospheric"
 	desc = "An atmospheric-resistant suit by Cybersun Industries, offering extreme heat resistance compared to the engineer suit."

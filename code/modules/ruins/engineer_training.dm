@@ -54,6 +54,10 @@
 /obj/item/mod/control/pre_equipped/advanced/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
+/obj/item/mod/control/pre_equipped/engineer/trainee
+	theme = /datum/mod_theme/engineering/trainee
+	applied_cell = /obj/item/stock_parts/cell/high/slime
+
 /obj/item/mod/control/pre_equipped/atmospheric/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
