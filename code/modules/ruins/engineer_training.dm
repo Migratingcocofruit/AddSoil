@@ -124,32 +124,34 @@
 /obj/machinery/power/alien_cache
 	name = "Alien Technology Cache"
 	icon = 'icons/obj/machines/alien_cache.dmi'
-	icon_state = "alien_cache"
-	base_icon_state = "alien_cache"
+	icon_state = "placeholder_2"
+	base_icon_state = "placeholder_2"
 	power_state = NO_POWER_USE
 	density = TRUE
 	interact_offline = TRUE
 	luminosity = 1
+	pixel_x = -192	//shamelessly stolen from BSH(which was shamelessly stolen from DNA vault)
+	pixel_y = -192
 
 /obj/machinery/power/alien_cache/Initialize(mapload)
 	. = ..()
 	if(!powernet)
 		connect_to_network()
 
-	AddComponent(/datum/component/multitile, 1, list(
-		list(1, 1, 1, 1, 1, 1,1,		   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,1,		   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,1	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1, MACH_CENTER, 1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
-		list(1, 1, 1, 1, 1, 1,0	,	   1, 1, 1, 1, 1, 1),
+	AddComponent(/datum/component/multitile, 6, list(
+		list(0, 0, 0, 1, 1, 1, 1,	   1, 1, 1, 0, 0, 0),
+		list(0, 0, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 0, 0),
+		list(0, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 0),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1),
+		list(0, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 0),
+		list(0, 0, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 0, 0),
+		list(0, 0, 0, 1, 1, 1, MACH_CENTER,	   1, 1, 1, 0, 0, 0),
 	))
 
 /obj/machinery/power/bluespace_tap/connect_to_network()

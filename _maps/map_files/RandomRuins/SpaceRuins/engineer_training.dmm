@@ -2556,6 +2556,11 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/directional/south,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/alien_cache)
 "cVF" = (
@@ -3878,6 +3883,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/engine)
+"dTq" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/alien_cache,
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "dZF" = (
 /obj/structure/table,
 /obj/item/stack/sheet/metal/fifty,
@@ -4179,6 +4192,11 @@
 /area/ruin/space/alien_cache_site/fore_port_solar_control)
 "fvy" = (
 /obj/machinery/alarm/directional/south,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/alien_cache)
 "fvE" = (
@@ -4290,6 +4308,14 @@
 "fTd" = (
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/control)
+"fUx" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "fWC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -6116,6 +6142,11 @@
 /area/ruin/space/alien_cache_site/dorms)
 "ptw" = (
 /obj/machinery/firealarm/directional/south,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/alien_cache)
 "pxP" = (
@@ -6124,6 +6155,15 @@
 	},
 /turf/simulated/floor/plasteel,
 /area/ruin/space/alien_cache_site/pre_engine)
+"pyU" = (
+/obj/machinery/light,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "pCv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -6189,6 +6229,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ruin/space/alien_cache_site/pre_engine)
+"pQB" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "pRS" = (
 /turf/simulated/wall/r_wall,
 /area/ruin/space/alien_cache_site/engine)
@@ -6507,6 +6555,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/engine,
 /area/ruin/space/alien_cache_site/control)
+"rox" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "roQ" = (
 /obj/structure/lattice,
 /turf/space,
@@ -6678,6 +6738,14 @@
 "sDH" = (
 /turf/simulated/floor/plasteel,
 /area/ruin/space/alien_cache_site/medbay)
+"sDR" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/ruin/space/alien_cache_site/alien_cache)
 "sFL" = (
 /obj/structure/closet/crate/engineering/emitter,
 /turf/simulated/floor/plating,
@@ -9949,16 +10017,16 @@ hTA
 hTA
 hTA
 hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
-hTA
+dTq
+rox
+pQB
+pQB
+pQB
+pQB
+pQB
+pQB
+pQB
+sDR
 sLP
 cSa
 cSa
@@ -10020,7 +10088,7 @@ hTA
 hTA
 hTA
 hTA
-hTA
+fUx
 oyL
 cSa
 cSa
@@ -10082,7 +10150,7 @@ hTA
 hTA
 hTA
 hTA
-ixd
+pyU
 wWn
 cSa
 cSa
@@ -10206,7 +10274,7 @@ hTA
 hTA
 hTA
 hTA
-hTA
+fUx
 wWn
 kJJ
 cSa
