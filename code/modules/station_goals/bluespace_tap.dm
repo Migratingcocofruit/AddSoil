@@ -581,28 +581,5 @@
 	<p><small>Device highly experimental. Not for sale. Do not operate near small children or vital NT assets. Do not tamper with machine. In case of existential dread, stop machine immediately. \
 	Please document any and all extradimensional incursions. In case of imminent death, please leave said documentation in plain sight for clean-up teams to recover.</small></p>"
 
-// Safe BSH. Same as a normal BSH but spawns no mobs
-
-/obj/machinery/power/bluespace_tap/safe
-	counts = FALSE
-	circuitboard = /obj/item/circuitboard/machine/bluespace_tap/safe
-
-/obj/structure/spawner/nether/bluespace_tap/safe
-	mob_types = list(/mob/living/simple_animal/pet/dog/corgi, /mob/living/simple_animal/pet/dog/fox, /mob/living/simple_animal/pet/cat, /mob/living/simple_animal/pet/penguin)
-	var/list/cuddle_timer = list()
-	sucked_in_message = "Touching the portal, you are quickly pulled through into a world of unimaginable fluff!"
-
-/obj/structure/spawner/nether/bluespace_tap/safe/process()
-	for(var/mob/living/M in contents)
-		if(cuddle_timer[M.name] <= 0)
-			M.forceMove(loc)
-		else
-			to_chat(M,"<span class='info'>You are too busy petting cute animals to leave this place</span>")
-			cuddle_timer[M.name]--
-
-/obj/structure/spawner/nether/bluespace_tap/safe/attack_hand(mob/user)
-	. = ..()
-	cuddle_timer["[user.name]"] = 3
-
 #undef BASE_ENERGY_CONVERSION
 #undef BASE_POINTS
