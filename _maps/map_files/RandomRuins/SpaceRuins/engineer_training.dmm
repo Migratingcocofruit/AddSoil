@@ -6555,18 +6555,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/engine,
 /area/ruin/space/alien_cache_site/control)
-"rox" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/plating,
-/area/ruin/space/alien_cache_site/alien_cache)
 "roQ" = (
 /obj/structure/lattice,
 /turf/space,
@@ -10017,12 +10005,12 @@ hTA
 hTA
 hTA
 hTA
+hTA
+hTA
+hTA
+hTA
+hTA
 dTq
-rox
-pQB
-pQB
-pQB
-pQB
 pQB
 pQB
 pQB
