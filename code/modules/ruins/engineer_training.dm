@@ -1,3 +1,6 @@
+/// Total energy to decypher the cache: 100MWh
+#define DECYPHER_ENERGY 3.6e3 * 100 MW
+
 // ID
 
 /obj/item/card/id/engineer_trainee
@@ -11,7 +14,7 @@
 
 /datum/outfit/engineer_trainee
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
-	back = /obj/item/mod/control/pre_equipped/engineer/trainee
+	back = /obj/item/mod/control/pre_equipped/engineering/trainee
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	belt = /obj/item/storage/belt/utility/chief/full
 	gloves = /obj/item/clothing/gloves/color/yellow
@@ -54,7 +57,7 @@
 /obj/item/mod/control/pre_equipped/advanced/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
-/obj/item/mod/control/pre_equipped/engineer/trainee
+/obj/item/mod/control/pre_equipped/engineering/trainee
 	theme = /datum/mod_theme/engineering/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
@@ -121,51 +124,90 @@
 
 // Alien Cache
 
+/obj/item/salvage/ruin/nanotrasen/alien
+	name = "lost research notes"
+	desc = "A collection of research notes bearing a Nanotrasen logo.\
+			The disorgenized writing describes mind bending concepts along with maddened raving you cannot make sense of.\
+			And the dates recorded randomly vary from the distant past to the far future"
+
+/obj/item/salvage/ruin/nanotrasen/alien/Initialize(mapload)
+	. = ..()
+	origin_tech = "alien=8"
+
 /obj/machinery/power/alien_cache
 	name = "Alien Technology Cache"
 	icon = 'icons/obj/machines/alien_cache.dmi'
-	icon_state = "placeholder_2"
-	base_icon_state = "placeholder_2"
+	icon_state = "base"
+	base_icon_state = "base"
 	power_state = NO_POWER_USE
 	density = TRUE
 	interact_offline = TRUE
 	luminosity = 1
-	pixel_x = -192	//many tiles
+	pixel_x = -160	//many tiles
 	pixel_y = 0
+	/// Amount of power being consumed (Watts)
 	var/consuming = 0
+	/// The type of the highetst area in the local hirarchy(That isn't a prototype)
+	var/parent_area_type
+	/// Total amount of energy invested in decyphering (Joules)
+	var/total_energy = 0
+	/// The types of the rewards you get upon fully decyphering the cache(random generation on init)
+	var/list/possible_contents = list(/obj/item/salvage/ruin/nanotrasen/alien
+									)
 
 /obj/machinery/power/alien_cache/Initialize(mapload)
 	. = ..()
 	if(!powernet)
 		connect_to_network()
 
-	AddComponent(/datum/component/multitile, 12, list(
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,	   1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,	   1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, MACH_CENTER,	   1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	AddComponent(/datum/component/multitile, 10, list(
+		list(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,	   		   1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,	   		   1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,	   		   1, 1, 1, 1, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,	   		   1, 1, 1, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, MACH_CENTER,	   1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,			   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+		list(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,	   		   0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	))
+
+	parent_area_type = (get_area(src)).type
+
+	if(parent_area_type in subtypesof(/area/ruin))
+		// figure out which ruin we are on
+		while(!(type2parent(parent_area_type) in GLOB.ruin_prototypes))
+			parent_area_type = type2parent(parent_area_type)
+
+	else if(parent_area_type in subtypesof(/area/station))
+		parent_area_type = /area/station
+	else
+		parent_area_type = null
+
+/obj/machinery/power/alien_cache/proc/open_cache()
+	var/cache_turf = get_turf(src)
+	for(var/i in 1 to 5)
+		cache_turf = get_step(cache_turf, NORTH)
+	new /obj/item/salvage/ruin/nanotrasen/alien(cache_turf)
+	update_icon()
+
+/obj/machinery/power/alien_cache/update_icon()
+	. = ..()
+	if(total_energy >= DECYPHER_ENERGY)
+		icon_state = "decyphered"
+
 
 /obj/machinery/power/alien_cach/connect_to_network()
 	. = ..()
@@ -173,8 +215,29 @@
 		update_icon()
 
 /obj/machinery/power/alien_cache/process()
-	if(get_surplus() >= 1 KW)
-		consuming = 1 KW
+	if(powernet && total_energy < DECYPHER_ENERGY)
+		consuming = get_surplus()
 		consume_direct_power(consuming)
+		// power consumed in Watts and a tick is 2 seconds, so 1 Watt tick is 2 Joules.
+		total_energy += 2 * consuming
+		// Chance for causing a supermatter event rises in proportion to total energy. between 1/10 and 1/5 minutes, increasing with decyphering progress.
+		if(prob((1 / 300) + (total_energy / ( 300 * DECYPHER_ENERGY))))
+			for(var/obj/super_maybe in GLOB.poi_list)
+				if(((get_area(super_maybe)).type in typesof(parent_area_type)) && (super_maybe.type in typesof(/obj/machinery/atmospherics/supermatter_crystal)))
+					var/obj/machinery/atmospherics/supermatter_crystal/supermatter = super_maybe
+					if(!supermatter.event_active)
+						supermatter.radio.autosay("<span class='reallybig'>Interdimensional interference detected</span>",name, supermatter.damage_channel)
+						// alpha and sierra tier probability increases with power consumption
+						var/list/events = list(/datum/supermatter_event/delta_tier = 40,
+								/datum/supermatter_event/charlie_tier = 40,
+								/datum/supermatter_event/bravo_tier = 15,
+								/datum/supermatter_event/alpha_tier = 5 * (consuming / (5 MW)),
+								/datum/supermatter_event/sierra_tier = 1 * (consuming / (1 MW)),
+								)
 
-
+						var/datum/supermatter_event/event = pick(subtypesof(pickweight(events)))
+						supermatter.run_event(event)
+						supermatter.make_next_event_time()
+						break
+		if(total_energy >= DECYPHER_ENERGY)
+			open_cache()
