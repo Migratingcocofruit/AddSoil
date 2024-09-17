@@ -132,7 +132,7 @@
 
 /obj/item/salvage/ruin/nanotrasen/alien/Initialize(mapload)
 	. = ..()
-	origin_tech = "alien=8"
+	origin_tech = "alien=8;bluespace=8"
 
 /obj/machinery/power/alien_cache
 	name = "Alien Technology Cache"
@@ -152,8 +152,7 @@
 	/// Total amount of energy invested in decyphering (Joules)
 	var/total_energy = 0
 	/// The types of the rewards you get upon fully decyphering the cache(random generation on init)
-	var/list/possible_contents = list(/obj/item/salvage/ruin/nanotrasen/alien
-									)
+	var/list/possible_contents = list()
 
 /obj/machinery/power/alien_cache/Initialize(mapload)
 	. = ..()
