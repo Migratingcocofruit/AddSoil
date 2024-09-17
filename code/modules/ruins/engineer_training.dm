@@ -11,7 +11,7 @@
 
 /datum/outfit/engineer_trainee
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
-	back = /obj/item/mod/control/pre_equipped/advanced/trainee
+	back = /obj/item/mod/control/pre_equipped/engineering/trainee
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	belt = /obj/item/storage/belt/utility/chief/full
 	gloves = /obj/item/clothing/gloves/color/yellow
@@ -51,7 +51,8 @@
 
 // Modsuits
 
-/obj/item/mod/control/pre_equipped/advanced/trainee
+/obj/item/mod/control/pre_equipped/engineering/trainee
+	theme = /datum/mod_theme/engineering/trainee
 	applied_cell = /obj/item/stock_parts/cell/high/slime
 
 /obj/item/mod/control/pre_equipped/atmospheric/trainee

@@ -1920,6 +1920,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/structure/closet/crate/engineering/safe_singulo_kit,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/secure_storage)
 "cQL" = (
@@ -2080,10 +2081,10 @@
 /turf/simulated/floor/plasteel,
 /area/ruin/space/engineer_training_facility/equipmentstorage)
 "cRU" = (
-/obj/item/stack/ore/bluespace_crystal/refined{
+/obj/structure/table,
+/obj/item/stack/ore/bluespace_crystal/artificial{
 	amount = 50
 	},
-/obj/structure/table,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/construction)
 "cRV" = (
@@ -2121,10 +2122,6 @@
 	},
 /obj/item/stack/rods{
 	amount = 50
-	},
-/obj/item/stack/ore/bluespace_crystal/refined{
-	amount = 100;
-	max_amount = 100
 	},
 /obj/item/stack/ore/iron{
 	amount = 500;
@@ -3492,6 +3489,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/structure/closet/crate/engineering/safe_tesla_kit,
 /turf/simulated/floor/plating,
 /area/ruin/space/engineer_training_facility/secure_storage)
 "dja" = (
@@ -5642,7 +5640,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "vault"
@@ -7784,6 +7781,7 @@
 /area/space/nearstation)
 "xjh" = (
 /obj/effect/turf_decal/stripes/line,
+/obj/machinery/gravity_generator/main/station,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "vault"
@@ -7879,9 +7877,6 @@
 	icon_state = "dark"
 	},
 /area/ruin/space/engineer_training_facility/controlroom)
-"xSr" = (
-/turf/simulated/wall/indestructible/fakeglass,
-/area/space)
 "xSF" = (
 /obj/machinery/access_button{
 	autolink_id = "train_eng_solars_btn_ext";
@@ -7984,69 +7979,68 @@
 /area/ruin/space/engineer_training_facility/pre_engine)
 
 (1,1,1) = {"
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (2,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -8105,10 +8099,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (3,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -8167,10 +8161,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (4,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -8229,10 +8223,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (5,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -8291,10 +8285,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (6,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -8353,10 +8347,11 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (7,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8415,10 +8410,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (8,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8477,10 +8472,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (9,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8539,10 +8534,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (10,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8601,10 +8596,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (11,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8663,10 +8658,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (12,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8725,10 +8720,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (13,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8787,10 +8782,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (14,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8849,10 +8844,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (15,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8911,10 +8906,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (16,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -8973,10 +8968,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (17,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9035,10 +9030,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (18,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9097,10 +9092,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (19,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9159,10 +9154,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (20,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9221,10 +9216,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (21,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9283,10 +9278,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (22,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9345,10 +9340,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (23,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9407,10 +9402,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (24,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9469,10 +9464,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (25,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9531,10 +9526,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (26,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9593,10 +9588,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (27,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9655,10 +9650,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (28,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9717,10 +9712,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (29,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9779,10 +9774,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (30,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9841,10 +9836,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (31,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9903,10 +9898,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (32,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -9965,10 +9960,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (33,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10027,10 +10022,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (34,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10089,10 +10084,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (35,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10151,10 +10146,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (36,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10213,10 +10208,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (37,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10275,10 +10270,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (38,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -10337,10 +10332,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (39,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 hTA
@@ -10399,10 +10394,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (40,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10429,8 +10424,8 @@ kJJ
 dar
 ddG
 cPk
+cPk
 cQj
-cQJ
 cQJ
 dar
 aaa
@@ -10461,10 +10456,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (41,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10523,10 +10518,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (42,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10585,10 +10580,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (43,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 pFa
@@ -10647,10 +10642,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (44,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10709,10 +10704,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (45,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10771,10 +10766,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (46,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10833,10 +10828,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (47,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 pFa
@@ -10895,10 +10890,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (48,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -10957,10 +10952,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (49,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -11019,10 +11014,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (50,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -11081,10 +11076,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (51,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 pFa
@@ -11143,10 +11138,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (52,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -11205,10 +11200,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (53,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -11267,10 +11262,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (54,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 bka
@@ -11329,10 +11324,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (55,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 kYM
@@ -11391,10 +11386,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (56,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 mrB
@@ -11453,10 +11448,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (57,1,1) = {"
-xSr
+aaa
 aaa
 hTA
 cHQ
@@ -11515,10 +11510,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (58,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 cHQ
@@ -11577,10 +11572,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (59,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 bLF
@@ -11639,10 +11634,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (60,1,1) = {"
-xSr
+aaa
 aaa
 pHq
 bWT
@@ -11701,10 +11696,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (61,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 bWT
@@ -11763,10 +11758,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (62,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 wJB
@@ -11825,10 +11820,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (63,1,1) = {"
-xSr
+aaa
 aaa
 pHq
 wJB
@@ -11887,10 +11882,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (64,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 koB
@@ -11949,10 +11944,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (65,1,1) = {"
-xSr
+aaa
 aaa
 cHQ
 cHQ
@@ -12011,10 +12006,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (66,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 cHQ
@@ -12073,10 +12068,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (67,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12135,10 +12130,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (68,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12197,10 +12192,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (69,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12259,10 +12254,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (70,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12321,10 +12316,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (71,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12383,10 +12378,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (72,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12445,10 +12440,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (73,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12507,10 +12502,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (74,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12569,10 +12564,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (75,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12631,10 +12626,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (76,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12693,10 +12688,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (77,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12755,10 +12750,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (78,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12817,10 +12812,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (79,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12879,10 +12874,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (80,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -12941,10 +12936,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (81,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13003,10 +12998,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (82,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13065,10 +13060,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (83,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13127,10 +13122,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (84,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13189,10 +13184,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (85,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13251,10 +13246,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (86,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13313,10 +13308,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (87,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13375,10 +13370,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (88,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13437,10 +13432,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (89,1,1) = {"
-xSr
+aaa
 aaa
 aaa
 aaa
@@ -13499,10 +13494,9 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
 "}
 (90,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -13561,10 +13555,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (91,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -13623,10 +13617,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (92,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -13685,10 +13679,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (93,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -13747,10 +13741,10 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (94,1,1) = {"
-xSr
 aaa
 aaa
 aaa
@@ -13809,67 +13803,68 @@ aaa
 aaa
 aaa
 aaa
-xSr
+aaa
+aaa
 "}
 (95,1,1) = {"
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
-xSr
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
