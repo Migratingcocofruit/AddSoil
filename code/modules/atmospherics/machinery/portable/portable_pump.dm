@@ -67,7 +67,7 @@
 			var/turf/T = get_turf(pump)
 			environment = get_turf_air(T)
 		if(pump.direction == DIRECTION_OUT)
-			var/pressure_delta = pump.target_pressure - environment.return_pressure()
+			var/pressure_delta = (pump.air_contents.return_pressure() + pump.target_pressure) - environment.return_pressure()
 			//Can not have a pressure delta that would cause environment pressure > tank pressure
 
 			var/transfer_moles = 0
@@ -79,7 +79,7 @@
 
 				environment.merge(removed)
 		else
-			var/pressure_delta = pump.target_pressure - pump.air_contents.return_pressure()
+			var/pressure_delta = (pump.target_pressure + environment.return_pressure()) - pump.air_contents.return_pressure()
 			//Can not have a pressure delta that would cause environment pressure > tank pressure
 
 			var/transfer_moles = 0
